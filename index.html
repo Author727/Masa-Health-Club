@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masa Health Club | Health & Beauty Shop in Kohinoor City Faisalabad</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            rose: '#E27370',
+                            roseDark: '#C85A57',
+                            olive: '#7A8C5E',
+                            gold: '#D4AF37',
+                            dark: '#1C1917',
+                            cream: '#FAF7F2',
+                            softBg: '#F5EFEB'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth Scrolling & Custom Animations */
+        html { scroll-behavior: smooth; }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hover Overlay Slide effect from Left for Service Cards */
+        .service-card-img-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-hover-overlay {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(226, 115, 112, 0.85);
+            transition: left 0.4s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .service-card-img-wrapper:hover .service-hover-overlay {
+            left: 0;
+        }
+
+        /* FAQ Custom Details Accordion Styling */
+        details summary::-webkit-details-marker { display: none; }
+        details[open] .faq-icon { transform: rotate(180deg); }
+        details summary { list-style: none; }
+
+        /* Floating WhatsApp Icon Animation */
+        .whatsapp-pulse {
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Hide Scrollbar for clean Slider Views */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-brand-cream text-stone-800 font-sans antialiased flex flex-col min-h-screen selection:bg-brand-rose selection:text-white">
+
+    <!-- ========================================== -->
+    <!-- STEP ONE: HEADER SECTION                   -->
+    <!-- ========================================== -->
+
+    <!-- Top Bar Header Layer -->
+    <div class="bg-brand-dark text-stone-200 text-xs sm:text-sm py-2.5 px-4 border-b border-stone-800">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <!-- Left Info -->
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                <a href="tel:00923078865865" class="flex items-center gap-1.5 hover:text-brand-rose transition">
+                    <i class="fa-solid fa-phone text-brand-rose"></i>
+                    <span>0092-3078865865</span>
+                </a>
+                <span class="hidden sm:inline text-stone-600">|</span>
+                <a href="mailto:info@masahealthclub.com" class="flex items-center gap-1.5 hover:text-brand-rose transition">
+                    <i class="fa-solid fa-envelope text-brand-rose"></i>
+                    <span>info@masahealthclub.com</span>
+                </a>
+            </div>
+            
+            <!-- Right Social Links & GMB Review -->
+            <div class="flex items-center gap-4">
+                <span class="hidden lg:inline text-stone-400 text-xs font-semibold uppercase tracking-wider">Follow Us:</span>
+                <div class="flex items-center gap-3">
+                    <a href="https://facebook.com" target="_blank" title="Facebook" class="hover:text-brand-rose transition"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram" class="hover:text-brand-rose transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" title="Twitter / X" class="hover:text-brand-rose transition"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://pinterest.com" target="_blank" title="Pinterest" class="hover:text-brand-rose transition"><i class="fa-brands fa-pinterest-p"></i></a>
+                </div>
+                <span class="text-stone-600">|</span>
+                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="flex items-center gap-1 bg-brand-rose/20 text-brand-rose hover:bg-brand-rose hover:text-white px-2.5 py-0.5 rounded-full text-xs font-medium transition">
+                    <i class="fa-solid fa-star text-amber-400"></i>
+                    <span>GMB Review</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header (Part 2) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-stone-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            
+            <!-- Logo & Business Name -->
+            <a href="#" onclick="switchPage('home'); return false;" class="flex items-center gap-3 group">
+                <!-- High Fidelity Inline Logo SVG inspired by input_file_0.png -->
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-50 to-orange-50 border border-brand-rose/30 flex items-center justify-center p-1.5 shadow-sm group-hover:shadow transition">
+                    <svg viewBox="0 0 200 200" class="w-full h-full">
+                        <text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', serif" font-size="64" font-weight="bold" fill="#E27370" font-style="italic">masa</text>
+                        <text x="50%" y="78%" text-anchor="middle" dominant-baseline="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#7A8C5E" letter-spacing="5">HEALTH CLUB</text>
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif text-2xl font-bold text-stone-900 leading-tight tracking-tight group-hover:text-brand-rose transition">Masa</span>
+                    <span class="text-[10px] uppercase font-extrabold tracking-[0.25em] text-brand-olive leading-none">Health Club</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu Bar -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 font-medium text-stone-700">
+                <button onclick="switchPage('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-rose hover:bg-stone-50 transition">Home</button>
+                <button onclick="switchPage('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-rose hover:bg-stone-50 transition">About Us</button>
+                <button onclick="switchPage('services')" id="nav-services" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-rose hover:bg-stone-50 transition">Services</button>
+                <button onclick="switchPage('blogs')" id="nav-blogs" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-rose hover:bg-stone-50 transition">Blogs</button>
+                <button onclick="switchPage('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-lg hover:text-brand-rose hover:bg-stone-50 transition">Contact Us</button>
+                
+                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="ml-3 bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-5 py-2.5 rounded-full text-sm shadow-md shadow-brand-rose/20 transition transform hover:-translate-y-0.5">
+                    Book Now
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-stone-700 hover:text-brand-rose focus:outline-none">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Nav Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-6 space-y-2">
+            <button onclick="switchPage('home'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-stone-700 hover:bg-stone-100 font-medium">Home</button>
+            <button onclick="switchPage('about'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-stone-700 hover:bg-stone-100 font-medium">About Us</button>
+            <button onclick="switchPage('services'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-stone-700 hover:bg-stone-100 font-medium">Services</button>
+            <button onclick="switchPage('blogs'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-stone-700 hover:bg-stone-100 font-medium">Blogs</button>
+            <button onclick="switchPage('contact'); toggleMobileMenu()" class="block w-full text-left px-4 py-2.5 rounded-lg text-stone-700 hover:bg-stone-100 font-medium">Contact Us</button>
+            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center bg-brand-rose text-white py-3 rounded-xl font-semibold mt-4 shadow">
+                Get A Quote / Book Appointment
+            </a>
+        </div>
+    </header>
+
+    <!-- Floating WhatsApp Icon Bottom Right -->
+    <a href="https://wa.me/00923078865865?text=Hello%20Masa%20Health%20Club,%20I%20would%20like%20to%20inquire%20about%20your%20services." 
+       target="_blank" 
+       title="Chat on WhatsApp" 
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl whatsapp-pulse transition transform hover:scale-110">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- MAIN CONTAINER FOR SPA PAGE NAVIGATION -->
+    <main class="flex-grow">
+
+        <!-- ========================================== -->
+        <!-- PAGE 1: HOME PAGE                          -->
+        <!-- ========================================== -->
+        <div id="page-home" class="page-content fade-in-up">
+            
+            <!-- 1st Section: Full Width Hero Slider Banner with Overlay -->
+            <section class="relative bg-stone-900 overflow-hidden min-h-[500px] sm:min-h-[600px] flex items-center">
+                
+                <!-- Slide Container -->
+                <div id="slider-container" class="relative w-full h-[520px] sm:h-[620px]">
+                    
+                    <!-- Slide 1: Hairstyling -->
+                    <div class="slide-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10">
+                        <img src="https://images.unsplash.com/photo-1629397662600-50ad523ef4fb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Hairstyling Services" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+                            <span class="text-brand-rose uppercase font-bold tracking-widest text-sm mb-2 bg-stone-900/60 px-4 py-1 rounded-full border border-brand-rose/40">Luxury Hair Care</span>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold max-w-4xl leading-tight mb-4">Transform Your Look with Expert Hairstyling</h1>
+                            <p class="text-stone-200 text-base sm:text-lg max-w-2xl mb-8">Professional haircutting, coloring, and tailored oil treatments for radiant healthy hair.</p>
+                            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-8 py-3.5 rounded-full text-base transition shadow-lg transform hover:scale-105">Book Appointment</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Pedicure -->
+                    <div class="slide-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Pedicure Services" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+                            <span class="text-brand-rose uppercase font-bold tracking-widest text-sm mb-2 bg-stone-900/60 px-4 py-1 rounded-full border border-brand-rose/40">Relaxing Foot Care</span>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold max-w-4xl leading-tight mb-4">Rejuvenating Manicures & Pedicures</h1>
+                            <p class="text-stone-200 text-base sm:text-lg max-w-2xl mb-8">Pamper your hands and feet with our premium soothing spa treatments.</p>
+                            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-8 py-3.5 rounded-full text-base transition shadow-lg transform hover:scale-105">Book Your Session</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Beauty Salon -->
+                    <div class="slide-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                        <img src="https://plus.unsplash.com/premium_photo-1661963320607-aebac6fcb40d?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Beauty Salon Services" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+                            <span class="text-brand-rose uppercase font-bold tracking-widest text-sm mb-2 bg-stone-900/60 px-4 py-1 rounded-full border border-brand-rose/40">Full Service Salon</span>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold max-w-4xl leading-tight mb-4">Complete Beauty & Salon Care</h1>
+                            <p class="text-stone-200 text-base sm:text-lg max-w-2xl mb-8">From eyebrow threading to body polishing, reveal your inner glow in Kohinoor City.</p>
+                            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-8 py-3.5 rounded-full text-base transition shadow-lg transform hover:scale-105">Get Free Quote</a>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Facial Treatment -->
+                    <div class="slide-item absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 z-0">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Facial Treatments" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex flex-col justify-center items-center text-center text-white px-4">
+                            <span class="text-brand-rose uppercase font-bold tracking-widest text-sm mb-2 bg-stone-900/60 px-4 py-1 rounded-full border border-brand-rose/40">Organic Skin Glow</span>
+                            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold max-w-4xl leading-tight mb-4">Herbal & Hydra Facial Treatments</h1>
+                            <p class="text-stone-200 text-base sm:text-lg max-w-2xl mb-8">Deep cleansing herbal skin glow treatments designed for ultimate relaxation.</p>
+                            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-8 py-3.5 rounded-full text-base transition shadow-lg transform hover:scale-105">Explore Facials</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition">
+                    <i class="fa-solid fa-chevron-left text-xl"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 hover:bg-white/40 text-white w-12 h-12 rounded-full flex items-center justify-center backdrop-blur-md transition">
+                    <i class="fa-solid fa-chevron-right text-xl"></i>
+                </button>
+
+                <!-- Slider 4 Bottom Dots Indicator -->
+                <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
+                    <button onclick="goToSlide(0)" class="slider-dot w-3.5 h-3.5 rounded-full bg-white transition"></button>
+                    <button onclick="goToSlide(1)" class="slider-dot w-3.5 h-3.5 rounded-full bg-white/40 transition"></button>
+                    <button onclick="goToSlide(2)" class="slider-dot w-3.5 h-3.5 rounded-full bg-white/40 transition"></button>
+                    <button onclick="goToSlide(3)" class="slider-dot w-3.5 h-3.5 rounded-full bg-white/40 transition"></button>
+                </div>
+            </section>
+
+            <!-- 2nd Section: About Us (50/50 Split) -->
+            <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <!-- Left 50%: About Content -->
+                    <div class="space-y-6">
+                        <div class="inline-flex items-center gap-2 text-brand-rose font-bold text-sm uppercase tracking-wider bg-rose-50 px-3 py-1 rounded-md">
+                            <i class="fa-solid fa-sparkles"></i>
+                            <span>About Masa Health Club</span>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 leading-tight">
+                            Welcome to Your Premium Health & Beauty Sanctuary in Faisalabad
+                        </h2>
+                        <p class="text-stone-600 leading-relaxed text-base sm:text-lg">
+                            Welcome to Masa Health Club, a premier health and beauty shop located in Kohinoor City Faisalabad, Punjab. Enjoy beauty salon services, facial treatments, hair styling, professional waxing, manicures, body polishing, herbal facials, hair trimming, eyebrow threading, and hair oiling treatments in a comfortable setting. Refresh your look and feel your best. Book your appointment today and give yourself the care you deserve!
+                        </p>
+                        <div class="pt-4">
+                            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-flex items-center gap-2 bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-7 py-3.5 rounded-xl shadow-md transition transform hover:-translate-y-0.5">
+                                <span>Get A Quote</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right 50%: Service Image -->
+                    <div class="relative">
+                        <div class="absolute -inset-2 bg-brand-rose/20 rounded-3xl transform rotate-2"></div>
+                        <img src="https://plus.unsplash.com/premium_photo-1682087987464-51ba6adab1d0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Masa Health Club Care" class="relative rounded-2xl shadow-xl w-full h-[420px] object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3rd Section: Services (2 Rows of 4 Cards = 8 Services) -->
+            <section class="py-20 bg-stone-100/70 border-y border-stone-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                        <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Our Signature Offerings</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Explore Our Beauty & Wellness Services</h2>
+                        <p class="text-stone-600">Tailored grooming, hair care, and therapeutic skin remedies designed to revitalize your body and mind.</p>
+                    </div>
+
+                    <!-- 8 Services Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <!-- Service Card 1 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://images.unsplash.com/photo-1673465766620-1f336d434bff?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Hairstyling" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Hairstyling</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Experience customized haircuts, chic blowouts, dynamic styling, and nourishing locks maintenance provided by expert hair stylists tailored to your unique lifestyle.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 2 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://plus.unsplash.com/premium_photo-1661499249417-c20d6b668469?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Pedicure" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Pedicure & Manicure</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Relaxing foot soaking, nail shaping, exfoliation, cuticle care, and soothing massage treatments to keep your hands and feet smooth, clean, and refreshed.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 3 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://images.unsplash.com/photo-1675034743339-0b0747047727?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Beauty Salon Services" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Beauty Salon Services</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Comprehensive head-to-toe beauty care including makeup application, threading, party styling, and overall skin glow procedures in a serene salon environment.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 4 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Facial Treatment Services" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Facial Treatment Services</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Advanced deep pore cleansing, whitening, hydration, and anti-aging skin therapy crafted to give your face a healthy, radiant, and youthful luminescence.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 5 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Hair Styling & Oil Treatments" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Hair Styling & Oiling</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Therapeutic scalps massages combined with specialized herbal hair oiling and precision trimming to strengthen roots and enhance natural hair volume.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 6 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://images.unsplash.com/photo-1715848503470-9fa455906001?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Professional Waxing Services" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Professional Waxing</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Hygienic, gentle, and long-lasting hair removal procedures using premium quality waxes for silky smooth skin with minimal discomfort.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 7 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://plus.unsplash.com/premium_photo-1679522617451-30ad4b62cf84?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Body Polishing Services" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Body Polishing</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Exfoliating full-body polishes that remove dead skin cells, improve circulation, and hydrate the skin for a silky, radiant, and smooth finish.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service Card 8 -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-stone-200/80 flex flex-col">
+                            <div class="service-card-img-wrapper h-56">
+                                <img src="https://images.unsplash.com/photo-1713824096348-c1956e6da321?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Herbal Facial Treatment" class="w-full h-full object-cover">
+                                <div class="service-hover-overlay">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="bg-white text-stone-900 font-bold px-5 py-2.5 rounded-full text-xs uppercase tracking-wider shadow">Book Service</a>
+                                </div>
+                            </div>
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-xl font-serif font-bold text-stone-900 mb-2">Herbal Facial Treatment</h3>
+                                    <p class="text-stone-600 text-sm leading-relaxed mb-6">Pure botanical extracts and natural antioxidants designed to restore skin balance, reduce blemishes, and refresh delicate facial tones naturally.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block text-center w-full border border-brand-rose text-brand-rose hover:bg-brand-rose hover:text-white font-semibold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4th Section: Why Choose Us (50/50 Split) -->
+            <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left 50%: Tiles & Reasons -->
+                    <div class="space-y-6">
+                        <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Why Masa Health Club</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Why Choose Us For Your Beauty & Wellness Needs</h2>
+                        <p class="text-stone-600">We prioritize hygiene, personalized consultations, and high-end organic products to deliver an unmatchable aesthetic experience in Kohinoor City.</p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                            <!-- Feature Tile 1 -->
+                            <div class="p-4 bg-white rounded-xl border border-stone-200/80 shadow-sm flex items-start space-x-3">
+                                <div class="text-brand-rose bg-rose-50 p-2.5 rounded-lg text-xl"><i class="fa-solid fa-user-check"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-sm">Certified Specialists</h4>
+                                    <p class="text-xs text-stone-500 mt-1">Highly trained professionals for skin and hair.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature Tile 2 -->
+                            <div class="p-4 bg-white rounded-xl border border-stone-200/80 shadow-sm flex items-start space-x-3">
+                                <div class="text-brand-rose bg-rose-50 p-2.5 rounded-lg text-xl"><i class="fa-solid fa-pump-soap"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-sm">Hygienic Standards</h4>
+                                    <p class="text-xs text-stone-500 mt-1">Sanitized equipment & premium products.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature Tile 3 -->
+                            <div class="p-4 bg-white rounded-xl border border-stone-200/80 shadow-sm flex items-start space-x-3">
+                                <div class="text-brand-rose bg-rose-50 p-2.5 rounded-lg text-xl"><i class="fa-solid fa-spa"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-sm">Relaxing Ambience</h4>
+                                    <p class="text-xs text-stone-500 mt-1">Comfortable and luxurious sanctuary.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature Tile 4 -->
+                            <div class="p-4 bg-white rounded-xl border border-stone-200/80 shadow-sm flex items-start space-x-3">
+                                <div class="text-brand-rose bg-rose-50 p-2.5 rounded-lg text-xl"><i class="fa-solid fa-heart"></i></div>
+                                <div>
+                                    <h4 class="font-bold text-stone-900 text-sm">Customer First</h4>
+                                    <p class="text-xs text-stone-500 mt-1">100% satisfaction guaranteed care.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right 50%: Image -->
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Why Choose Masa Health Club" class="rounded-2xl shadow-xl w-full h-[450px] object-cover border border-stone-200">
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 5th Section: Customer Reviews Slider (6 Reviews - 2 Slide View) -->
+            <section class="py-20 bg-stone-900 text-white relative overflow-hidden">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center max-w-2xl mx-auto mb-12 space-y-2">
+                        <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Client Feedback</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold">What Our Valued Clients Say</h2>
+                        <p class="text-stone-400">Trusted by hundreds of clients across Faisalabad for quality beauty treatments.</p>
+                    </div>
+
+                    <!-- Slider Container -->
+                    <div class="relative">
+                        <div id="reviews-slider" class="flex transition-transform duration-500 ease-in-out space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-4">
+                            
+                            <!-- Review 1 -->
+                            <div class="min-w-[90%] md:min-w-[48%] bg-stone-800 p-8 rounded-2xl border border-stone-700/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex text-amber-400 gap-1 mb-4">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-stone-300 italic mb-6">"The herbal facial at Masa Health Club left my skin glowing and refreshed! Very professional staff and extremely clean environment in Kohinoor City."</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-rose text-white font-bold flex items-center justify-center">SA</div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Saima Ali</h4>
+                                        <span class="text-xs text-stone-400">Faisalabad, PK</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="min-w-[90%] md:min-w-[48%] bg-stone-800 p-8 rounded-2xl border border-stone-700/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex text-amber-400 gap-1 mb-4">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-stone-300 italic mb-6">"Best hair styling and trimming service in town. Their scalp oil massage is so soothing. I recommend everyone to visit them."</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-olive text-white font-bold flex items-center justify-center">MK</div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Muhammad Khan</h4>
+                                        <span class="text-xs text-stone-400">Faisalabad, PK</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 3 -->
+                            <div class="min-w-[90%] md:min-w-[48%] bg-stone-800 p-8 rounded-2xl border border-stone-700/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex text-amber-400 gap-1 mb-4">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-stone-300 italic mb-6">"Extremely happy with their pedicure and waxing treatments. Friendly behavior, neat tools, and reasonable prices."</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-rose text-white font-bold flex items-center justify-center">ZT</div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Zainab Tariq</h4>
+                                        <span class="text-xs text-stone-400">Faisalabad, PK</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 4 -->
+                            <div class="min-w-[90%] md:min-w-[48%] bg-stone-800 p-8 rounded-2xl border border-stone-700/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex text-amber-400 gap-1 mb-4">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-stone-300 italic mb-6">"Got body polishing done before my event. The skin glow was noticeable immediately. Masa Health Club is now my go-to salon!"</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-olive text-white font-bold flex items-center justify-center">FA</div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Fatima Ahmed</h4>
+                                        <span class="text-xs text-stone-400">Faisalabad, PK</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 5 -->
+                            <div class="min-w-[90%] md:min-w-[48%] bg-stone-800 p-8 rounded-2xl border border-stone-700/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex text-amber-400 gap-1 mb-4">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-stone-300 italic mb-6">"Top-tier services at Kohinoor City. Eyebrow threading and hair care services are exceptionally well executed."</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-rose text-white font-bold flex items-center justify-center">UR</div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Usman Raza</h4>
+                                        <span class="text-xs text-stone-400">Faisalabad, PK</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Review 6 -->
+                            <div class="min-w-[90%] md:min-w-[48%] bg-stone-800 p-8 rounded-2xl border border-stone-700/60 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex text-amber-400 gap-1 mb-4">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-stone-300 italic mb-6">"Great hospitality and expert beauticians. Their hydra facials give quick and remarkable results!"</p>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-brand-olive text-white font-bold flex items-center justify-center">MB</div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Maryam Bilal</h4>
+                                        <span class="text-xs text-stone-400">Faisalabad, PK</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Review Controls -->
+                        <div class="flex justify-center gap-4 mt-8">
+                            <button onclick="scrollReviews(-1)" class="w-10 h-10 rounded-full bg-stone-800 border border-stone-700 text-white flex items-center justify-center hover:bg-brand-rose transition">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <button onclick="scrollReviews(1)" class="w-10 h-10 rounded-full bg-stone-800 border border-stone-700 text-white flex items-center justify-center hover:bg-brand-rose transition">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- 6th Section: Frequently Asked Questions (Schema Compatible details/summary) -->
+            <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Got Questions?</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mt-1">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- Left 50%: 5 Accordion FAQs with Schema markup readiness -->
+                    <div class="space-y-4" itemscope itemtype="https://schema.org/FAQPage">
+                        
+                        <!-- FAQ Item 1 -->
+                        <details class="group bg-white rounded-2xl p-6 border border-stone-200/80 shadow-sm transition" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                            <summary class="flex justify-between items-center font-bold text-stone-900 text-lg cursor-pointer list-none">
+                                <span itemprop="name">What beauty services are offered at Masa Health Club?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <div itemprop="text">We offer facial treatments, hairstyling, manicures, pedicures, professional waxing, body polishing, herbal facials, hair trimming, eyebrow threading, and organic hair oiling treatments.</div>
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 2 -->
+                        <details class="group bg-white rounded-2xl p-6 border border-stone-200/80 shadow-sm transition" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                            <summary class="flex justify-between items-center font-bold text-stone-900 text-lg cursor-pointer list-none">
+                                <span itemprop="name">Where is Masa Health Club located?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <div itemprop="text">Our center is conveniently located at The Orion, 8-G, Shop No 6 Jaranwala Rd, Kohinoor City Faisalabad, Punjab.</div>
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 3 -->
+                        <details class="group bg-white rounded-2xl p-6 border border-stone-200/80 shadow-sm transition" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                            <summary class="flex justify-between items-center font-bold text-stone-900 text-lg cursor-pointer list-none">
+                                <span itemprop="name">What are your operating business hours?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <div itemprop="text">We are open Monday through Saturday from 11:00 AM to 9:00 PM. We are closed on Sundays.</div>
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 4 -->
+                        <details class="group bg-white rounded-2xl p-6 border border-stone-200/80 shadow-sm transition" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                            <summary class="flex justify-between items-center font-bold text-stone-900 text-lg cursor-pointer list-none">
+                                <span itemprop="name">Do I need an advance appointment for services?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <div itemprop="text">While walk-ins are welcome, we recommend booking an advance appointment via call or WhatsApp to guarantee your preferred timing.</div>
+                            </div>
+                        </details>
+
+                        <!-- FAQ Item 5 -->
+                        <details class="group bg-white rounded-2xl p-6 border border-stone-200/80 shadow-sm transition" itemprop="mainEntity" itemscope itemtype="https://schema.org/Question">
+                            <summary class="flex justify-between items-center font-bold text-stone-900 text-lg cursor-pointer list-none">
+                                <span itemprop="name">Are organic herbal facials suitable for sensitive skin?</span>
+                                <span class="faq-icon transition-transform duration-300 text-brand-rose"><i class="fa-solid fa-chevron-down"></i></span>
+                            </summary>
+                            <div class="mt-4 text-stone-600 text-sm leading-relaxed border-t border-stone-100 pt-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+                                <div itemprop="text">Yes, our herbal facial formulations use 100% botanical ingredients designed to nourish sensitive skin without harsh chemical reactions.</div>
+                            </div>
+                        </details>
+
+                    </div>
+
+                    <!-- Right 50%: FAQ Service Image -->
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Masa FAQ" class="rounded-2xl shadow-lg w-full h-[420px] object-cover">
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7th Section: Contact Us & Google Map Section (50/50 Split) -->
+            <section class="py-20 bg-stone-100 border-t border-stone-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <!-- Left 50%: Business Details with Flat Icons -->
+                        <div class="space-y-6">
+                            <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Reach Out To Us</span>
+                            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900">Visit Masa Health Club</h2>
+                            <p class="text-stone-600">Give yourself the care you deserve. Contact us or drop by our location today.</p>
+
+                            <div class="space-y-5 pt-2">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-rose text-xl shrink-0"><i class="fa-solid fa-phone"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900">Phone Number</h4>
+                                        <p class="text-stone-600 text-sm">0092-3078865865</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-rose text-xl shrink-0"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900">Address</h4>
+                                        <p class="text-stone-600 text-sm">The Orion, 8-G, Shop No 6 Jaranwala Rd, Kohinoor City Faisalabad.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-rose text-xl shrink-0"><i class="fa-solid fa-envelope"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900">Business Email</h4>
+                                        <p class="text-stone-600 text-sm">info@masahealthclub.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-rose text-xl shrink-0"><i class="fa-solid fa-clock"></i></div>
+                                    <div>
+                                        <h4 class="font-bold text-stone-900">Business Hours</h4>
+                                        <p class="text-stone-600 text-sm">Mon - Sat : 11: 00 AM – 9:00 PM (Sunday Closed)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right 50%: Google Maps Embed iframe -->
+                        <div class="w-full h-[450px] rounded-2xl overflow-hidden shadow-xl border border-stone-200">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.4236728552787!2d73.1161831!3d31.4124315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85a41a173e4e2db7%3A0xfa8c1d0aee6f913e!2sMasa%20Health%20Club!5e1!3m2!1sen!2s!4v1793226570250!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8th Section: Request A Quote Form & Animated Counters -->
+            <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    
+                    <!-- Left 50%: Request a Quote Form -->
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-lg border border-stone-200/80">
+                        <h3 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mb-2">Request A Quote</h3>
+                        <p class="text-stone-600 text-sm mb-6">Send us a direct inquiry for personalized beauty packages and appointment schedules.</p>
+                        
+                        <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Your Full Name</label>
+                                <input type="text" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-rose/50 text-sm">
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Phone Number</label>
+                                    <input type="tel" required placeholder="0300 0000000" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-rose/50 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Select Service</label>
+                                    <select class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-rose/50 text-sm">
+                                        <option>Hairstyling</option>
+                                        <option>Pedicure & Manicure</option>
+                                        <option>Beauty Salon Services</option>
+                                        <option>Facial Treatment Services</option>
+                                        <option>Hair Styling & Oiling</option>
+                                        <option>Professional Waxing</option>
+                                        <option>Body Polishing</option>
+                                        <option>Herbal Facial Treatment</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-stone-700 uppercase mb-1">Message / Requirements</label>
+                                <textarea rows="3" placeholder="Tell us about your requirements..." class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-rose/50 text-sm"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-brand-rose hover:bg-brand-roseDark text-white font-bold py-3.5 rounded-xl shadow-md transition">
+                                Send Inquiry to info@masahealthclub.com
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Right 50%: Business Counters Grid -->
+                    <div class="grid grid-cols-2 gap-6">
+                        
+                        <!-- Counter 1 -->
+                        <div class="bg-rose-50 p-6 rounded-2xl border border-rose-100 text-center space-y-2">
+                            <div class="w-12 h-12 bg-brand-rose text-white rounded-full flex items-center justify-center mx-auto text-xl shadow">
+                                <i class="fa-solid fa-smile"></i>
+                            </div>
+                            <div class="text-3xl font-serif font-bold text-stone-900">1,500+</div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-stone-600">Happy Clients</div>
+                        </div>
+
+                        <!-- Counter 2 -->
+                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100 text-center space-y-2">
+                            <div class="w-12 h-12 bg-amber-500 text-white rounded-full flex items-center justify-center mx-auto text-xl shadow">
+                                <i class="fa-solid fa-cut"></i>
+                            </div>
+                            <div class="text-3xl font-serif font-bold text-stone-900">3,200+</div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-stone-600">Hair & Facials</div>
+                        </div>
+
+                        <!-- Counter 3 -->
+                        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100 text-center space-y-2">
+                            <div class="w-12 h-12 bg-emerald-600 text-white rounded-full flex items-center justify-center mx-auto text-xl shadow">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div class="text-3xl font-serif font-bold text-stone-900">8+</div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-stone-600">Expert Services</div>
+                        </div>
+
+                        <!-- Counter 4 -->
+                        <div class="bg-stone-200/60 p-6 rounded-2xl border border-stone-300 text-center space-y-2">
+                            <div class="w-12 h-12 bg-stone-800 text-white rounded-full flex items-center justify-center mx-auto text-xl shadow">
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="text-3xl font-serif font-bold text-stone-900">4.9 / 5</div>
+                            <div class="text-xs font-bold uppercase tracking-wider text-stone-600">GMB Rating</div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 2: ABOUT US PAGE                      -->
+        <!-- ========================================== -->
+        <div id="page-about" class="page-content hidden fade-in-up py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Dedicated To Excellence</span>
+                <h1 class="text-4xl sm:text-5xl font-serif font-bold text-stone-900">About Masa Health Club</h1>
+                <p class="text-stone-600 text-lg">Your trusted beauty and health shop in Kohinoor City Faisalabad.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <img src="https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="About Masa Health Club" class="rounded-3xl shadow-xl w-full h-[450px] object-cover">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-serif font-bold text-stone-900">A Peaceful Oasis for Beauty & Care</h2>
+                    <p class="text-stone-600 leading-relaxed">
+                        At Masa Health Club, we believe everyone deserves a comfortable setting to refresh their look and feel their best. Located at The Orion in Kohinoor City Faisalabad, our shop provides high-grade beauty salon services, custom haircuts, specialized hair oiling, skin polishing, organic herbal facials, and relaxing pedicures.
+                    </p>
+                    <p class="text-stone-600 leading-relaxed">
+                        We pride ourselves on our meticulous hygienic standards, welcoming atmosphere, and dedicated staff who bring out your natural glow.
+                    </p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-block bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-8 py-3.5 rounded-xl shadow-md transition">
+                        Connect On GMB
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 3: SERVICES PAGE                      -->
+        <!-- ========================================== -->
+        <div id="page-services" class="page-content hidden fade-in-up py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">All Services</span>
+                <h1 class="text-4xl sm:text-5xl font-serif font-bold text-stone-900">Our Complete Service Catalog</h1>
+                <p class="text-stone-600">High quality health and beauty shop services tailored for you.</p>
+            </div>
+
+            <!-- Full Grid duplicating all 8 Services with Quote Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1673465766620-1f336d434bff?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Hairstyling</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Tailored haircuts, treatments, styling, and blowouts for healthy hair.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://plus.unsplash.com/premium_photo-1661499249417-c20d6b668469?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Pedicure & Manicure</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Foot spa, nail shaping, exfoliation, and relaxing massages for healthy skin.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1675034743339-0b0747047727?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Beauty Salon Services</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Comprehensive grooming, party makeup, eyebrow threading, and beauty care.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Facial Treatment Services</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Deep pore cleansing, hydration, and skin rejuvenation treatments.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Hair Styling & Oiling</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Scalp massages and herbal oiling treatments for strong hair.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1715848503470-9fa455906001?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Professional Waxing</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Smooth, hygienic, long-lasting hair removal using soft waxes.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 7 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://plus.unsplash.com/premium_photo-1679522617451-30ad4b62cf84?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Body Polishing</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Full body exfoliation and polishing for smooth, luminous skin.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+                <!-- Service 8 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200/80 p-5 space-y-4">
+                    <img src="https://images.unsplash.com/photo-1713824096348-c1956e6da321?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover rounded-xl">
+                    <h3 class="font-serif font-bold text-xl text-stone-900">Herbal Facial</h3>
+                    <p class="text-xs text-stone-600 leading-relaxed">Organic botanical skin treatment for clear, natural facial glow.</p>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center bg-brand-rose text-white text-xs font-bold py-2.5 rounded-xl uppercase">Get a Free Quote</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 4: BLOGS PAGE                         -->
+        <!-- ========================================== -->
+        <div id="page-blogs" class="page-content hidden fade-in-up py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Health & Beauty Insights</span>
+                <h1 class="text-4xl sm:text-5xl font-serif font-bold text-stone-900">Masa Health Club Journal</h1>
+                <p class="text-stone-600">Expert tips on skin care, hair oiling, hydra facials, and wellness.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Blog 1 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-rose uppercase">Facial Care</span>
+                            <h3 class="text-xl font-serif font-bold text-stone-900 mt-1">5 Benefits of Regular Herbal Facials</h3>
+                            <p class="text-xs text-stone-600 mt-2">Discover how natural botanical extracts rejuvenate tired skin cells without chemicals.</p>
+                        </div>
+                        <a href="#" class="text-xs font-bold text-brand-rose hover:underline">Read Full Article &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog 2 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1629397662600-50ad523ef4fb?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-rose uppercase">Hair Care</span>
+                            <h3 class="text-xl font-serif font-bold text-stone-900 mt-1">Why Hair Oiling Treatments Matter</h3>
+                            <p class="text-xs text-stone-600 mt-2">Deep scalp massages with herbal oils strengthen hair roots against everyday pollution.</p>
+                        </div>
+                        <a href="#" class="text-xs font-bold text-brand-rose hover:underline">Read Full Article &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Blog 3 -->
+                <article class="bg-white rounded-2xl overflow-hidden shadow-sm border border-stone-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" class="w-full h-48 object-cover">
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <span class="text-xs font-bold text-brand-rose uppercase">Hand & Foot Care</span>
+                            <h3 class="text-xl font-serif font-bold text-stone-900 mt-1">Pedicure Tips for Healthy Feet</h3>
+                            <p class="text-xs text-stone-600 mt-2">Maintain soft skin and healthy nails between your routine salon visits.</p>
+                        </div>
+                        <a href="#" class="text-xs font-bold text-brand-rose hover:underline">Read Full Article &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- PAGE 5: CONTACT US PAGE                    -->
+        <!-- ========================================== -->
+        <div id="page-contact" class="page-content hidden fade-in-up py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+            <div class="text-center max-w-3xl mx-auto space-y-3">
+                <span class="text-brand-rose font-bold uppercase tracking-wider text-sm">Get In Touch</span>
+                <h1 class="text-4xl sm:text-5xl font-serif font-bold text-stone-900">Contact Masa Health Club</h1>
+                <p class="text-stone-600">We are here to assist you with all your beauty and wellness inquiries.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info & Form -->
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-stone-200 space-y-6">
+                    <h3 class="text-2xl font-serif font-bold text-stone-900">Send Us A Message</h3>
+                    <form onsubmit="handleQuoteSubmit(event)" class="space-y-4">
+                        <input type="text" placeholder="Full Name" required class="w-full p-3 rounded-xl border border-stone-300 text-sm">
+                        <input type="email" placeholder="Email Address" required class="w-full p-3 rounded-xl border border-stone-300 text-sm">
+                        <input type="tel" placeholder="Phone Number" required class="w-full p-3 rounded-xl border border-stone-300 text-sm">
+                        <textarea placeholder="Message" rows="4" required class="w-full p-3 rounded-xl border border-stone-300 text-sm"></textarea>
+                        <button type="submit" class="w-full bg-brand-rose text-white font-bold py-3.5 rounded-xl">Submit Message</button>
+                    </form>
+                </div>
+
+                <!-- Google Map Embedded -->
+                <div class="h-[450px] rounded-3xl overflow-hidden shadow-md border border-stone-200">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.4236728552787!2d73.1161831!3d31.4124315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85a41a173e4e2db7%3A0xfa8c1d0aee6f913e!2sMasa%20Health%20Club!5e1!3m2!1sen!2s!4v1793226570250!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========================================== -->
+    <!-- STEP THREE: FOOTER SECTION (3 EQUAL COLS)  -->
+    <!-- ========================================== -->
+    <footer class="bg-stone-900 text-stone-300 pt-16 pb-8 border-t border-stone-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-stone-800">
+                
+                <!-- Col 1 (33.33%): Logo, Description, Join Us GMB Button -->
+                <div class="space-y-6">
+                    <a href="#" onclick="switchPage('home'); return false;" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center p-1">
+                            <svg viewBox="0 0 200 200" class="w-full h-full">
+                                <text x="50%" y="45%" text-anchor="middle" dominant-baseline="middle" font-family="'Playfair Display', serif" font-size="64" font-weight="bold" fill="#E27370" font-style="italic">masa</text>
+                                <text x="50%" y="78%" text-anchor="middle" dominant-baseline="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="22" font-weight="700" fill="#7A8C5E" letter-spacing="5">HEALTH CLUB</text>
+                            </svg>
+                        </div>
+                        <span class="font-serif text-2xl font-bold text-white">Masa Health Club</span>
+                    </a>
+                    
+                    <p class="text-sm text-stone-400 leading-relaxed">
+                        Welcome to Masa Health Club, a premier health and beauty shop in Kohinoor City Faisalabad. Enjoy salon care, facials, hair styling, professional waxing, and body polishing in comfort.
+                    </p>
+
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="inline-flex items-center gap-2 bg-brand-rose hover:bg-brand-roseDark text-white font-semibold px-6 py-2.5 rounded-xl text-sm transition">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Join Us</span>
+                    </a>
+                </div>
+
+                <!-- Col 2 (33.33%): Quick Navigation Menu -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-serif font-bold text-lg">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><button onclick="switchPage('home')" class="hover:text-brand-rose transition">Home</button></li>
+                        <li><button onclick="switchPage('about')" class="hover:text-brand-rose transition">About Us</button></li>
+                        <li><button onclick="switchPage('services')" class="hover:text-brand-rose transition">Services</button></li>
+                        <li><button onclick="switchPage('blogs')" class="hover:text-brand-rose transition">Blogs</button></li>
+                        <li><button onclick="switchPage('contact')" class="hover:text-brand-rose transition">Contact Us</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 (33.33%): Contact Information in Separate Lines -->
+                <div class="space-y-4">
+                    <h4 class="text-white font-serif font-bold text-lg">Contact Information</h4>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-rose mt-1"></i>
+                            <span>The Orion, 8-G, Shop No 6 Jaranwala Rd, Kohinoor City Faisalabad.</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-brand-rose"></i>
+                            <span>0092-3078865865</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-brand-rose"></i>
+                            <span>info@masahealthclub.com</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-clock text-brand-rose"></i>
+                            <span>Mon - Sat : 11: 00 AM – 9:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Center Line -->
+            <div class="pt-8 text-center text-xs text-stone-500">
+                © 2026 All Rights Reserved By The Ranking Geeks
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
+    <script>
+        // 1. Single Page Application (SPA) Router
+        function switchPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update Active Nav Buttons styling
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => btn.classList.remove('text-brand-rose', 'font-bold'));
+            
+            const activeBtn = document.getElementById('nav-' + pageId);
+            if (activeBtn) {
+                activeBtn.classList.add('text-brand-rose', 'font-bold');
+            }
+        }
+
+        // 2. Mobile Nav Drawer Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // 3. Hero Banner Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide-item');
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'z-0');
+                    slide.classList.add('opacity-100', 'z-10');
+                } else {
+                    slide.classList.remove('opacity-100', 'z-10');
+                    slide.classList.add('opacity-0', 'z-0');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-white/40');
+                    dot.classList.add('bg-white');
+                } else {
+                    dot.classList.remove('bg-white');
+                    dot.classList.add('bg-white/40');
+                }
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let newIndex = (currentSlide + 1) % slides.length;
+            showSlide(newIndex);
+        }
+
+        function prevSlide() {
+            let newIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(newIndex);
+        }
+
+        function goToSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto Advance Slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // 4. Reviews Slider Logic
+        function scrollReviews(direction) {
+            const container = document.getElementById('reviews-slider');
+            const scrollAmount = container.clientWidth * 0.8;
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // 5. Quote Form Submit Handler
+        function handleQuoteSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for contacting Masa Health Club! Your request has been recorded. We will contact you at info@masahealthclub.com or phone shortly.');
+        }
+
+        // Initialize Home Page as active on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            switchPage('home');
+        });
+    </script>
+</body>
+</html>
