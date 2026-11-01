@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masa Health Club | Beauty Salon & Spa in Kohinoor City Faisalabad</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        /* Define Brand Theme Classes Directly */
+        :root {
+            --brand-rose: #e07a5f;
+            --brand-olive: #6b705c;
+            --brand-soft: #fdfbf7;
+            --brand-card: #f4ece1;
+            --brand-dark: #2b2d42;
+            --brand-accent: #d4a373;
+        }
+
+        .bg-brand-rose { background-color: var(--brand-rose); }
+        .text-brand-rose { color: var(--brand-rose); }
+        .bg-brand-soft { background-color: var(--brand-soft); }
+        .text-brand-soft { color: var(--brand-soft); }
+        .bg-brand-card { background-color: var(--brand-card); }
+        .bg-brand-dark { background-color: var(--brand-dark); }
+        .text-brand-dark { color: var(--brand-dark); }
+        .text-brand-olive { color: var(--brand-olive); }
+        .text-brand-accent { color: var(--brand-accent); }
+        .border-brand-accent { border-color: var(--brand-accent); }
+
+        .font-cursive { font-family: 'Alex Brush', cursive; }
+        .font-sans { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        /* Smooth Fade In Scroll Animations */
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover Overlay animation for Services */
+        .service-card-img {
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(224,122,95,0.4) 0%, rgba(212,163,115,0.6) 100%);
+            transition: left 0.4s ease-in-out;
+        }
+        .service-card-img:hover::after {
+            left: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #fdfbf7;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4a373;
+            border-radius: 4px;
+        }
+
+        /* FAQ Details Animation */
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+        details[open] summary .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Floating WhatsApp Bounce */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float {
+            animation: pulse-ring 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-brand-soft text-brand-dark font-sans flex flex-col min-h-screen antialiased selection:bg-brand-rose selection:text-white">
+
+    <!-- ================= HEADER SECTION ================= -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-brand-accent/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo & Business Name -->
+                <a href="javascript:void(0)" onclick="switchTab('home')" class="flex items-center gap-3 group focus:outline-none">
+                    <!-- Crisp Canvas Logo Rendering -->
+                    <div class="w-12 h-12 bg-white rounded-full shadow-md flex items-center justify-center p-1 border border-brand-accent/30 group-hover:scale-105 transition-transform">
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="48" fill="#FDFBF7" stroke="#E07A5F" stroke-width="2"/>
+                            <text x="50%" y="48%" text-anchor="middle" dominant-baseline="middle" font-family="'Alex Brush', cursive" font-size="38" fill="#E07A5F">masa</text>
+                            <text x="50%" y="72%" text-anchor="middle" dominant-baseline="middle" font-family="sans-serif" font-size="9" font-weight="bold" fill="#6B705C" letter-spacing="2">HEALTH CLUB</text>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cursive text-3xl font-bold text-brand-rose leading-tight tracking-wide">masa</span>
+                        <span class="text-[10px] font-bold text-brand-olive tracking-[0.25em] uppercase -mt-1">Health Club</span>
+                    </div>
+                </a>
+
+                <!-- Navigation Links (Desktop) -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <button onclick="switchTab('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:text-brand-rose">Home</button>
+                    <button onclick="switchTab('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:text-brand-rose">About Us</button>
+                    <button onclick="switchTab('services')" id="nav-services" class="nav-btn px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:text-brand-rose">Services</button>
+                    <button onclick="switchTab('blogs')" id="nav-blogs" class="nav-btn px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:text-brand-rose">Blogs</button>
+                    <button onclick="switchTab('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-full text-sm font-semibold transition-all duration-200 hover:text-brand-rose">Contact Us</button>
+                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="ml-3 px-5 py-2.5 bg-brand-rose hover:bg-brand-rose/90 text-white rounded-full text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">Book Appointment</a>
+                </nav>
+
+                <!-- Mobile Hamburger Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2 rounded-lg text-brand-dark hover:text-brand-rose focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-brand-accent/20 px-4 pt-2 pb-6 space-y-2">
+            <button onclick="switchTab('home'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:bg-brand-soft hover:text-brand-rose">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:bg-brand-soft hover:text-brand-rose">About Us</button>
+            <button onclick="switchTab('services'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:bg-brand-soft hover:text-brand-rose">Services</button>
+            <button onclick="switchTab('blogs'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:bg-brand-soft hover:text-brand-rose">Blogs</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu()" class="block w-full text-left px-4 py-3 rounded-xl text-base font-medium hover:bg-brand-soft hover:text-brand-rose">Contact Us</button>
+            <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block text-center mt-4 w-full px-5 py-3 bg-brand-rose text-white rounded-xl font-bold uppercase text-xs tracking-wider">Book Appointment</a>
+        </div>
+    </header>
+
+
+    <!-- ================= MAIN CONTENT PAGES (TABBED SPA) ================= -->
+    <main class="flex-grow">
+
+        <!-- ================= PAGE 1: HOME PAGE ================= -->
+        <div id="page-home" class="page-content">
+            
+            <!-- 1st Section: Hero Banner Carousel -->
+            <section class="relative bg-brand-dark text-white overflow-hidden">
+                <div id="hero-slider" class="relative h-[550px] sm:h-[600px] lg:h-[680px] w-full">
+                    <!-- Carousel Slides -->
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                        <img src="https://images.unsplash.com/photo-1629397662600-50ad523ef4fb?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover" alt="Hair Styling Services">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center p-6">
+                            <div class="max-w-3xl space-y-4">
+                                <span class="px-4 py-1.5 rounded-full bg-brand-rose/80 text-white text-xs uppercase font-bold tracking-widest inline-block">Exclusive Pampering</span>
+                                <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold font-sans tracking-tight leading-tight">Professional Hair Styling & Trimming</h1>
+                                <p class="text-base sm:text-lg text-gray-200 max-w-xl mx-auto font-light">Transform your daily look with custom haircuts, precision trimming, and opulent luxury styling sessions.</p>
+                                <div class="pt-4">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-3.5 bg-brand-rose hover:bg-white hover:text-brand-dark text-white font-bold rounded-full text-sm uppercase tracking-wider transition-all shadow-lg inline-block">Get A Free Quote</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover" alt="Pedicure & Foot Spa">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center p-6">
+                            <div class="max-w-3xl space-y-4">
+                                <span class="px-4 py-1.5 rounded-full bg-brand-rose/80 text-white text-xs uppercase font-bold tracking-widest inline-block">Revitalizing Care</span>
+                                <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold font-sans tracking-tight leading-tight">Relaxing Pedicure & Manicure</h1>
+                                <p class="text-base sm:text-lg text-gray-200 max-w-xl mx-auto font-light">Soothe tired feet and beautify your hands with premium herbal exfoliation and nail care treatments.</p>
+                                <div class="pt-4">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-3.5 bg-brand-rose hover:bg-white hover:text-brand-dark text-white font-bold rounded-full text-sm uppercase tracking-wider transition-all shadow-lg inline-block">Reserve Spa Seat</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://plus.unsplash.com/premium_photo-1661963320607-aebac6fcb40d?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover" alt="Beauty Salon Services">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center p-6">
+                            <div class="max-w-3xl space-y-4">
+                                <span class="px-4 py-1.5 rounded-full bg-brand-rose/80 text-white text-xs uppercase font-bold tracking-widest inline-block">Beauty Sanctuary</span>
+                                <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold font-sans tracking-tight leading-tight">Complete Beauty Salon Services</h1>
+                                <p class="text-base sm:text-lg text-gray-200 max-w-xl mx-auto font-light">Step into Kohinoor City's top-rated health & beauty studio. Refresh your glow and boost your confidence.</p>
+                                <div class="pt-4">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-3.5 bg-brand-rose hover:bg-white hover:text-brand-dark text-white font-bold rounded-full text-sm uppercase tracking-wider transition-all shadow-lg inline-block">Explore Treatments</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover" alt="Facial Treatment Services">
+                        <div class="absolute inset-0 bg-black/50"></div>
+                        <div class="absolute inset-0 flex items-center justify-center text-center p-6">
+                            <div class="max-w-3xl space-y-4">
+                                <span class="px-4 py-1.5 rounded-full bg-brand-rose/80 text-white text-xs uppercase font-bold tracking-widest inline-block">Organic Facials</span>
+                                <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold font-sans tracking-tight leading-tight">Herbal Facial Treatments</h1>
+                                <p class="text-base sm:text-lg text-gray-200 max-w-xl mx-auto font-light">Deep cleansing, anti-aging, and radiance-boosting facial remedies tailored specifically to your skin profile.</p>
+                                <div class="pt-4">
+                                    <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-3.5 bg-brand-rose hover:bg-white hover:text-brand-dark text-white font-bold rounded-full text-sm uppercase tracking-wider transition-all shadow-lg inline-block">Book Facial Today</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all focus:outline-none">
+                        <i class="fa-solid fa-chevron-left text-xl"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/20 hover:bg-white/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all focus:outline-none">
+                        <i class="fa-solid fa-chevron-right text-xl"></i>
+                    </button>
+
+                    <!-- 4 Indicator Dots -->
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
+                        <button onclick="setSlide(0)" class="dot w-3 h-3 rounded-full bg-white/50 transition-all"></button>
+                        <button onclick="setSlide(1)" class="dot w-3 h-3 rounded-full bg-white/50 transition-all"></button>
+                        <button onclick="setSlide(2)" class="dot w-3 h-3 rounded-full bg-white/50 transition-all"></button>
+                        <button onclick="setSlide(3)" class="dot w-3 h-3 rounded-full bg-white/50 transition-all"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2nd Section: About Us (Home Page Split) -->
+            <section class="py-20 bg-white reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <!-- Left 50% Text -->
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card text-brand-rose font-semibold text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-spa"></i> Welcome to Masa Health Club
+                            </div>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark leading-tight">Faisalabad's Premier Sanctuary for Beauty & Wellness</h2>
+                            <p class="text-gray-600 leading-relaxed font-light">
+                                Welcome to Masa Health Club, a premier health and beauty shop located in Kohinoor City Faisalabad, Punjab. Enjoy beauty salon services, facial treatments, hair styling, professional waxing, manicures, body polishing, herbal facials, hair trimming, eyebrow threading, and hair oiling treatments in a comfortable setting. Refresh your look and feel your best.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed font-light">
+                                Our highly trained aestheticians and stylists blend traditional organic care with contemporary techniques, ensuring every visit leaves you feeling fully relaxed, rejuvenated, and glowing.
+                            </p>
+                            <div class="pt-2">
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">
+                                    Get A Quote <i class="fa-solid fa-arrow-right-long ml-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Right 50% Image -->
+                        <div class="relative">
+                            <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                                <img src="https://images.unsplash.com/photo-1629397685944-7073f5589754?q=80&w=870&auto=format&fit=crop" class="w-full h-[450px] object-cover hover:scale-105 transition-transform duration-500" alt="Masa Health Club Interior">
+                            </div>
+                            <div class="absolute -bottom-6 -left-6 bg-brand-card p-6 rounded-2xl shadow-xl border border-brand-accent/20 hidden sm:block max-w-xs">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 bg-brand-rose text-white rounded-full flex items-center justify-center font-bold text-xl">
+                                        <i class="fa-solid fa-award"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-brand-dark text-sm">100% Client Satisfaction</h4>
+                                        <p class="text-xs text-gray-500">Premium quality organic salon care</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3rd Section: Services Grid (8 Services in 2 Rows of 4) -->
+            <section class="py-20 bg-brand-soft reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                        <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Our Specialties</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark">Exclusive Spa & Salon Services</h2>
+                        <div class="w-16 h-1 bg-brand-rose mx-auto rounded-full"></div>
+                    </div>
+
+                    <!-- 8 Services Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <!-- Service 1 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://images.unsplash.com/photo-1673465766620-1f336d434bff?q=80&w=869&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Hairstyling">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Hairstyling</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Transform your daily look with custom cuts, blowouts, and specialized styling crafted by top hair artists in Faisalabad for every individual occasion.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 2 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://plus.unsplash.com/premium_photo-1661499249417-c20d6b668469?q=80&w=387&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Pedicure">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Pedicure</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Relaxing herbal foot soak, scrub exfoliation, nail shaping, and deep foot massage designed to soothe tiredness and bring silky smoothness back.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 3 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://images.unsplash.com/photo-1675034743339-0b0747047727?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Beauty Salon Services">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Beauty Salon Services</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Complete bridal, party, and signature grooming makeovers executed with top tier international makeup brands and delicate artistic expertise.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 4 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Facial Treatment Services">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Facial Treatment Services</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Hydrating skin rejuvenation therapies, acne management, and collagen boosting facials crafted to revive natural glow and flawless texture.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 5 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?q=80&w=464&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Hair Styling Services">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Hair Styling Services</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Modern cuts, permanent hair straightening, keratin treatments, and color highlights personalized to complement your features.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 6 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://images.unsplash.com/photo-1715848503470-9fa455906001?q=80&w=870&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Professional Waxing Services">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Professional Waxing Services</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Hygienic, gentle, and fast body waxing treatments utilizing organic wax solutions that leave your skin velvety smooth without irritation.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 7 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://plus.unsplash.com/premium_photo-1679522617451-30ad4b62cf84?fm=jpg&q=60&w=3000&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Body Polishing Services">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Body Polishing Services</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Full-body scrub polish removes dead skin cells, restores moisture balance, and provides radiant, glowing skin for special events.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- Service 8 -->
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100">
+                            <div class="service-card-img h-48 w-full">
+                                <img src="https://images.unsplash.com/photo-1713824096348-c1956e6da321?q=80&w=387&auto=format&fit=crop" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Herbal Facial Treatment Services">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-brand-dark mb-2 group-hover:text-brand-rose transition-colors">Herbal Facial Treatment</h3>
+                                    <p class="text-xs text-gray-600 leading-relaxed">Natural botanical facials formulated with chemical-free ingredients to brighten complexion, reduce blemishes, and refresh skin texture.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="w-full py-2.5 bg-brand-card hover:bg-brand-rose hover:text-white text-brand-dark text-center rounded-xl font-semibold text-xs uppercase tracking-wider transition-all">Get a Free Quote</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4th Section: Why Choose Us (50/50 Split) -->
+            <section class="py-20 bg-white reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <!-- Left 50% Tiles & Description -->
+                        <div class="space-y-6">
+                            <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Why Choose Us</span>
+                            <h2 class="text-3xl sm:text-4xl font-bold text-brand-dark">Why Masa Health Club is Faisalabad's Top Choice</h2>
+                            <p class="text-gray-600 font-light leading-relaxed">We prioritize hygiene, relaxation, and tailored aesthetic treatments. Our club provides a peaceful atmosphere where clients enjoy personalized grooming services.</p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                <div class="p-4 bg-brand-soft rounded-2xl border border-brand-accent/20 flex items-start gap-3">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-user-shield text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Certified Experts</h4>
+                                        <p class="text-xs text-gray-500">Skilled beauticians with years of clinical experience.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-brand-soft rounded-2xl border border-brand-accent/20 flex items-start gap-3">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-leaf text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Organic Products</h4>
+                                        <p class="text-xs text-gray-500">Dermatologist approved skin-friendly botanical formulas.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-brand-soft rounded-2xl border border-brand-accent/20 flex items-start gap-3">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-pump-soap text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Strict Hygiene</h4>
+                                        <p class="text-xs text-gray-500">Sanitized instruments and single-use kits every session.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-4 bg-brand-soft rounded-2xl border border-brand-accent/20 flex items-start gap-3">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-clock text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Convenient Hours</h4>
+                                        <p class="text-xs text-gray-500">Open Mon-Sat 11:00 AM to 9:00 PM for easy scheduling.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right 50% Image -->
+                        <div class="rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?q=80&w=870&auto=format&fit=crop" class="w-full h-[480px] object-cover" alt="Why Choose Masa Health Club">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5th Section: Customer Reviews (2-by-2 Slider with Pakistani Men & Women) -->
+            <section class="py-20 bg-brand-card/40 reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+                        <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Testimonials</span>
+                        <h2 class="text-3xl font-bold text-brand-dark">What Our Clients Say</h2>
+                        <p class="text-xs text-gray-600">Honest feedback from our valued customers in Kohinoor City Faisalabad</p>
+                    </div>
+
+                    <!-- Reviews Carousel Container (2 per slide) -->
+                    <div class="relative max-w-5xl mx-auto">
+                        
+                        <!-- Slide 1 -->
+                        <div id="review-slide-0" class="review-slide grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm space-y-4 border border-brand-accent/20">
+                                <div class="flex text-amber-400 gap-1 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h4 class="font-bold text-brand-dark text-base">Saima Chaudhry</h4>
+                                <p class="text-xs text-gray-600 italic leading-relaxed">"Masa Health Club on Jaranwala Rd is hands down the best beauty salon in Kohinoor City. Their herbal facials gave my skin an instant glow before my family wedding!"</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-sm space-y-4 border border-brand-accent/20">
+                                <div class="flex text-amber-400 gap-1 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h4 class="font-bold text-brand-dark text-base">Hamza Malik</h4>
+                                <p class="text-xs text-gray-600 italic leading-relaxed">"Very clean and modern environment. Got my haircut and hair trimming done here. Professional staff and punctual timing."</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div id="review-slide-1" class="review-slide hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm space-y-4 border border-brand-accent/20">
+                                <div class="flex text-amber-400 gap-1 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h4 class="font-bold text-brand-dark text-base">Fatima Zahra</h4>
+                                <p class="text-xs text-gray-600 italic leading-relaxed">"The pedicure and manicure treatment at Masa Health Club were extremely relaxing. Highly recommend their body polishing service too!"</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-sm space-y-4 border border-brand-accent/20">
+                                <div class="flex text-amber-400 gap-1 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h4 class="font-bold text-brand-dark text-base">Usman Raza</h4>
+                                <p class="text-xs text-gray-600 italic leading-relaxed">"Excellent hair oiling treatment and scalp massage. Perfect spot in Kohinoor City to relax after a stressful workday."</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div id="review-slide-2" class="review-slide hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm space-y-4 border border-brand-accent/20">
+                                <div class="flex text-amber-400 gap-1 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h4 class="font-bold text-brand-dark text-base">Ayesha Khan</h4>
+                                <p class="text-xs text-gray-600 italic leading-relaxed">"Professional waxing and eyebrow threading services are done with great attention to detail. Painless and spotless!"</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-sm space-y-4 border border-brand-accent/20">
+                                <div class="flex text-amber-400 gap-1 text-sm">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                                <h4 class="font-bold text-brand-dark text-base">Bilal Ahmed</h4>
+                                <p class="text-xs text-gray-600 italic leading-relaxed">"Great customer service, comfortable seating, and reasonable packages. Best health and beauty shop in Faisalabad."</p>
+                            </div>
+                        </div>
+
+                        <!-- Review Carousel Controls -->
+                        <div class="flex justify-center items-center gap-4 mt-8">
+                            <button onclick="prevReview()" class="p-2.5 bg-white hover:bg-brand-rose hover:text-white text-brand-dark rounded-full shadow-sm transition-all">
+                                <i class="fa-solid fa-chevron-left text-xs"></i>
+                            </button>
+                            <div class="flex space-x-2">
+                                <button onclick="setReviewSlide(0)" class="rev-dot w-2.5 h-2.5 rounded-full bg-brand-rose"></button>
+                                <button onclick="setReviewSlide(1)" class="rev-dot w-2.5 h-2.5 rounded-full bg-gray-300"></button>
+                                <button onclick="setReviewSlide(2)" class="rev-dot w-2.5 h-2.5 rounded-full bg-gray-300"></button>
+                            </div>
+                            <button onclick="nextReview()" class="p-2.5 bg-white hover:bg-brand-rose hover:text-white text-brand-dark rounded-full shadow-sm transition-all">
+                                <i class="fa-solid fa-chevron-right text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6th Section: Frequently Asked Questions (50/50 Split) -->
+            <section class="py-20 bg-white reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <!-- Left 50%: 5 Accordions for Schema -->
+                        <div class="space-y-6">
+                            <div>
+                                <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Help Center</span>
+                                <h2 class="text-3xl font-bold text-brand-dark mt-1">Frequently Asked Questions</h2>
+                            </div>
+
+                            <div class="space-y-4">
+                                <details class="group bg-brand-soft p-4 rounded-2xl border border-brand-accent/20 [&_summary::-webkit-details-marker]:none">
+                                    <summary class="flex justify-between items-center font-bold text-sm text-brand-dark cursor-pointer list-none">
+                                        <span>What are the business hours of Masa Health Club?</span>
+                                        <span class="faq-icon transition-transform duration-300 text-brand-rose ml-2">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </span>
+                                    </summary>
+                                    <p class="text-xs text-gray-600 mt-3 leading-relaxed font-light">
+                                        We are open Monday through Saturday from 11:00 AM to 9:00 PM. We are closed on Sundays.
+                                    </p>
+                                </details>
+
+                                <details class="group bg-brand-soft p-4 rounded-2xl border border-brand-accent/20 [&_summary::-webkit-details-marker]:none">
+                                    <summary class="flex justify-between items-center font-bold text-sm text-brand-dark cursor-pointer list-none">
+                                        <span>Where is Masa Health Club located in Faisalabad?</span>
+                                        <span class="faq-icon transition-transform duration-300 text-brand-rose ml-2">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </span>
+                                    </summary>
+                                    <p class="text-xs text-gray-600 mt-3 leading-relaxed font-light">
+                                        Our address is The Orion, 8-G, Shop No 6, Jaranwala Rd, Kohinoor City Faisalabad.
+                                    </p>
+                                </details>
+
+                                <details class="group bg-brand-soft p-4 rounded-2xl border border-brand-accent/20 [&_summary::-webkit-details-marker]:none">
+                                    <summary class="flex justify-between items-center font-bold text-sm text-brand-dark cursor-pointer list-none">
+                                        <span>Do I need to make an appointment before visiting?</span>
+                                        <span class="faq-icon transition-transform duration-300 text-brand-rose ml-2">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </span>
+                                    </summary>
+                                    <p class="text-xs text-gray-600 mt-3 leading-relaxed font-light">
+                                        While walk-in clients are welcome, we recommend booking an appointment online or via WhatsApp to minimize wait times.
+                                    </p>
+                                </details>
+
+                                <details class="group bg-brand-soft p-4 rounded-2xl border border-brand-accent/20 [&_summary::-webkit-details-marker]:none">
+                                    <summary class="flex justify-between items-center font-bold text-sm text-brand-dark cursor-pointer list-none">
+                                        <span>Are organic facial products used for sensitive skin?</span>
+                                        <span class="faq-icon transition-transform duration-300 text-brand-rose ml-2">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </span>
+                                    </summary>
+                                    <p class="text-xs text-gray-600 mt-3 leading-relaxed font-light">
+                                        Yes! Our herbal facial and skin polishing solutions use gentle botanical extracts safe for sensitive skin types.
+                                    </p>
+                                </details>
+
+                                <details class="group bg-brand-soft p-4 rounded-2xl border border-brand-accent/20 [&_summary::-webkit-details-marker]:none">
+                                    <summary class="flex justify-between items-center font-bold text-sm text-brand-dark cursor-pointer list-none">
+                                        <span>What payment methods are accepted at the shop?</span>
+                                        <span class="faq-icon transition-transform duration-300 text-brand-rose ml-2">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </span>
+                                    </summary>
+                                    <p class="text-xs text-gray-600 mt-3 leading-relaxed font-light">
+                                        We accept Cash, Debit/Credit Cards, and mobile transfers like JazzCash and EasyPaisa.
+                                    </p>
+                                </details>
+                            </div>
+                        </div>
+
+                        <!-- Right 50%: Image -->
+                        <div class="rounded-3xl overflow-hidden shadow-xl">
+                            <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=870&auto=format&fit=crop" class="w-full h-[450px] object-cover" alt="Spa FAQ Session">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7th Section: Contact Us (50/50 Split Details & Map Iframe) -->
+            <section class="py-20 bg-brand-soft reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-xl mx-auto mb-12 space-y-2">
+                        <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Get In Touch</span>
+                        <h2 class="text-3xl font-bold text-brand-dark">Visit Our Health & Beauty Studio</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+                        
+                        <!-- Left 50% Flat Icons Details -->
+                        <div class="bg-white p-8 rounded-3xl shadow-sm border border-brand-accent/20 space-y-6 flex flex-col justify-center">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-card rounded-2xl flex items-center justify-center text-brand-rose font-bold text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-dark">Phone Number</h4>
+                                    <p class="text-xs text-gray-600 mt-0.5">03078865865</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-card rounded-2xl flex items-center justify-center text-brand-rose font-bold text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-dark">Studio Address</h4>
+                                    <p class="text-xs text-gray-600 mt-0.5">The Orion, 8-G, Shop No 6, Jaranwala Rd, Kohinoor City Faisalabad.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-card rounded-2xl flex items-center justify-center text-brand-rose font-bold text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-dark">Business Email</h4>
+                                    <p class="text-xs text-gray-600 mt-0.5">info@masahealthclub.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 bg-brand-card rounded-2xl flex items-center justify-center text-brand-rose font-bold text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-sm text-brand-dark">Business Hours</h4>
+                                    <p class="text-xs text-gray-600 mt-0.5">Mon - Sat : 11:00 AM – 9:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right 50% Google Map Iframe -->
+                        <div class="rounded-3xl overflow-hidden shadow-md border border-brand-accent/20 h-full min-h-[350px]">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.4236728552787!2d73.1161831!3d31.4124315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85a41a173e4e2db7%3A0xfa8c1d0aee6f913e!2sMasa%20Health%20Club!5e1!3m2!1sen!2s!4v1793226570250!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8th Section: Request A Quote Form & Counter Section -->
+            <section class="py-20 bg-white reveal-section">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <!-- Left 50% Form -->
+                        <div class="bg-brand-soft p-8 rounded-3xl border border-brand-accent/20">
+                            <h3 class="text-2xl font-bold text-brand-dark mb-2">Request A Quote</h3>
+                            <p class="text-xs text-gray-600 mb-6">Send your inquiry directly to info@masahealthclub.com and our team will get back to you promptly.</p>
+                            
+                            <form action="mailto:info@masahealthclub.com" method="post" enctype="text/plain" class="space-y-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-brand-dark mb-1">Your Full Name</label>
+                                    <input type="text" required placeholder="e.g. Sara Ahmed" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-rose text-xs">
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-semibold text-brand-dark mb-1">Phone Number</label>
+                                        <input type="tel" required placeholder="0300 0000000" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-rose text-xs">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-semibold text-brand-dark mb-1">Select Service</label>
+                                        <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-rose text-xs bg-white">
+                                            <option>Beauty Salon Services</option>
+                                            <option>Facial Treatment Services</option>
+                                            <option>Hair Styling Services</option>
+                                            <option>Pedicure & Manicure</option>
+                                            <option>Professional Waxing</option>
+                                            <option>Body Polishing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-brand-dark mb-1">Message / Requirements</label>
+                                    <textarea rows="3" placeholder="Tell us about your preferred date or service details..." class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-rose text-xs"></textarea>
+                                </div>
+                                <button type="submit" class="w-full py-3.5 bg-brand-rose hover:bg-brand-dark text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all">Submit Inquiry</button>
+                            </form>
+                        </div>
+
+                        <!-- Right 50% Stat Counter Boxes -->
+                        <div class="space-y-6">
+                            <div class="space-y-2">
+                                <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Our Accomplishments</span>
+                                <h2 class="text-3xl font-bold text-brand-dark">Milestones of Excellence</h2>
+                                <p class="text-xs text-gray-600 leading-relaxed font-light">We take immense pride in delivering top-notch beauty care in Kohinoor City Faisalabad.</p>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="p-6 bg-brand-card rounded-2xl text-center space-y-2 border border-brand-accent/20">
+                                    <i class="fa-solid fa-users text-2xl text-brand-rose"></i>
+                                    <h3 class="text-3xl font-bold text-brand-dark"><span class="counter" data-target="2500">0</span>+</h3>
+                                    <p class="text-xs font-semibold text-gray-600">Happy Clients</p>
+                                </div>
+
+                                <div class="p-6 bg-brand-card rounded-2xl text-center space-y-2 border border-brand-accent/20">
+                                    <i class="fa-solid fa-sparkles text-2xl text-brand-rose"></i>
+                                    <h3 class="text-3xl font-bold text-brand-dark"><span class="counter" data-target="4800">0</span>+</h3>
+                                    <p class="text-xs font-semibold text-gray-600">Facials & Care</p>
+                                </div>
+
+                                <div class="p-6 bg-brand-card rounded-2xl text-center space-y-2 border border-brand-accent/20">
+                                    <i class="fa-solid fa-user-check text-2xl text-brand-rose"></i>
+                                    <h3 class="text-3xl font-bold text-brand-dark"><span class="counter" data-target="15">0</span>+</h3>
+                                    <p class="text-xs font-semibold text-gray-600">Expert Stylists</p>
+                                </div>
+
+                                <div class="p-6 bg-brand-card rounded-2xl text-center space-y-2 border border-brand-accent/20">
+                                    <i class="fa-solid fa-award text-2xl text-brand-rose"></i>
+                                    <h3 class="text-3xl font-bold text-brand-dark"><span class="counter" data-target="99">0</span>%</h3>
+                                    <p class="text-xs font-semibold text-gray-600">Positive Ratings</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 2: ABOUT US PAGE ================= -->
+        <div id="page-about" class="page-content hidden">
+            <section class="py-16 bg-brand-dark text-white">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <h1 class="text-4xl font-bold">About Masa Health Club</h1>
+                    <p class="text-sm text-gray-300 max-w-xl mx-auto">Discover Kohinoor City's favorite destination for total beauty transformation, organic skincare, and hair art.</p>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1629397685944-7073f5589754?q=80&w=870&auto=format&fit=crop" class="rounded-3xl shadow-xl w-full h-[400px] object-cover" alt="About Salon">
+                        </div>
+                        <div class="space-y-4">
+                            <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Our Heritage</span>
+                            <h2 class="text-3xl font-bold text-brand-dark">Dedicated to Your Personal Wellbeing</h2>
+                            <p class="text-gray-600 text-sm leading-relaxed">Masa Health Club was established with a clear mission: to provide world-class health and beauty shop services to the vibrant community of Kohinoor City Faisalabad and surrounding regions. We combine modern beauty innovation with proven natural therapy techniques.</p>
+                            <p class="text-gray-600 text-sm leading-relaxed">Whether you are preparing for a wedding, upgrading your daily look, or taking time out for a soothing body polish, our expert team guarantees individual care with premium organic products.</p>
+                        </div>
+                    </div>
+
+                    <!-- Core Values Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+                        <div class="p-8 bg-brand-soft rounded-3xl border border-brand-accent/20 text-center space-y-3">
+                            <div class="w-14 h-14 bg-brand-rose text-white rounded-2xl mx-auto flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-brand-dark">Client First Philosophy</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">We listen carefully to your goals and tailor every single treatment session accordingly.</p>
+                        </div>
+
+                        <div class="p-8 bg-brand-soft rounded-3xl border border-brand-accent/20 text-center space-y-3">
+                            <div class="w-14 h-14 bg-brand-rose text-white rounded-2xl mx-auto flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-brand-dark">Premium Standards</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Only authentic, skin-safe, and high grade cosmetics and oils are ever applied.</p>
+                        </div>
+
+                        <div class="p-8 bg-brand-soft rounded-3xl border border-brand-accent/20 text-center space-y-3">
+                            <div class="w-14 h-14 bg-brand-rose text-white rounded-2xl mx-auto flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-brand-dark">Hygiene Guaranteed</h3>
+                            <p class="text-xs text-gray-600 leading-relaxed">Sterilized equipment and immaculate salon suites guarantee absolute safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 3: SERVICES PAGE ================= -->
+        <div id="page-services" class="page-content hidden">
+            <section class="py-16 bg-brand-dark text-white">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <h1 class="text-4xl font-bold">Our Full Service Menu</h1>
+                    <p class="text-sm text-gray-300 max-w-xl mx-auto">Explore all 8 dedicated health and beauty packages at Masa Health Club Faisalabad.</p>
+                </div>
+            </section>
+
+            <section class="py-20 bg-brand-soft">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <!-- Grid of 8 Services -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <!-- 1. Hairstyling -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1673465766620-1f336d434bff?q=80&w=869&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Hairstyling">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Hairstyling</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Modern cuts, updos, party hair setting, and smooth blowouts tailored to your look.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 2. Pedicure -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://plus.unsplash.com/premium_photo-1661499249417-c20d6b668469?q=80&w=387&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Pedicure">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Pedicure</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Soothing herbal bath, callus removal, exfoliation, and relaxing pressure massage.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 3. Beauty Salon Services -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1675034743339-0b0747047727?q=80&w=870&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Beauty Salon Services">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Beauty Salon Services</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Comprehensive head-to-toe grooming packages for everyday elegance and party events.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 4. Facial Treatment Services -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=870&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Facial Treatment Services">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Facial Treatment Services</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Hydrating skin rejuvenation, deep pore cleansing, anti-aging, and radiance facials.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 5. Hair Styling Services -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?q=80&w=464&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Hair Styling Services">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Hair Styling Services</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Specialized keratin therapy, hair coloring, highlights, and damage repair treatments.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 6. Professional Waxing Services -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1715848503470-9fa455906001?q=80&w=870&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Professional Waxing Services">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Professional Waxing</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Clean, painless, and soothing full body hair removal using organic wax formula.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 7. Body Polishing Services -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://plus.unsplash.com/premium_photo-1679522617451-30ad4b62cf84?fm=jpg&q=60&w=3000&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Body Polishing Services">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Body Polishing Services</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">Full body exfoliation treatment designed to restore natural glow and remove dead skin cells.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                        <!-- 8. Herbal Facial Treatment -->
+                        <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all border border-gray-100 flex flex-col">
+                            <img src="https://images.unsplash.com/photo-1713824096348-c1956e6da321?q=80&w=387&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Herbal Facial Treatment">
+                            <div class="p-6 flex flex-col flex-grow justify-between space-y-4">
+                                <div>
+                                    <h3 class="font-bold text-lg text-brand-dark">Herbal Facial Treatment</h3>
+                                    <p class="text-xs text-gray-600 mt-2 leading-relaxed">100% organic botanical facials formulated for glowing, healthy skin without harsh chemicals.</p>
+                                </div>
+                                <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="block w-full text-center py-2.5 bg-brand-rose text-white rounded-xl text-xs font-bold uppercase">Get Free Quote</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 4: BLOGS PAGE (5 Full SEO Articles) ================= -->
+        <div id="page-blogs" class="page-content hidden">
+            <section class="py-16 bg-brand-dark text-white">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <h1 class="text-4xl font-bold">Health & Beauty Insights</h1>
+                    <p class="text-sm text-gray-300 max-w-xl mx-auto">Expert guides on skincare routines, hair styling, manicures, and wellness tips.</p>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    
+                    <!-- Blog Card 1 -->
+                    <article class="bg-brand-soft p-6 sm:p-8 rounded-3xl border border-brand-accent/20 space-y-4">
+                        <img src="https://images.unsplash.com/photo-1675034743339-0b0747047727?q=80&w=870&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl" alt="Beauty Salon & Facial Treatment">
+                        <h2 class="text-2xl font-bold text-brand-dark">Beauty Salon Services for a Fresh and Confident Look</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">part of personal grooming. A professional salon offers a range of treatments to help people look fresh and feel confident. Choosing the right salon also makes a difference, as trained staff can understand individual needs and recommend suitable services. Whether you want regular grooming or a relaxing beauty session, professional care can make your experience more comfortable...</p>
+                        <button onclick="openBlogModal('blog-1')" class="px-6 py-2.5 bg-brand-rose text-white rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-brand-dark transition-all">Read Full Article</button>
+                    </article>
+
+                    <!-- Blog Card 2 -->
+                    <article class="bg-brand-soft p-6 sm:p-8 rounded-3xl border border-brand-accent/20 space-y-4">
+                        <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?q=80&w=464&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl" alt="Hair Styling & Waxing">
+                        <h2 class="text-2xl font-bold text-brand-dark">Enhance Your Beauty and Confidence with Expert Salon Services</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">Looking after your appearance is an important part of personal care. Well-maintained hair and smooth skin can help you feel comfortable and confident in your daily life. Choosing a professional beauty salon makes it easier to maintain your personal grooming routine. From fresh hairstyles to effective beauty treatments, the right salon can provide services that suit your needs, preferences, and lifestyle...</p>
+                        <button onclick="openBlogModal('blog-2')" class="px-6 py-2.5 bg-brand-rose text-white rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-brand-dark transition-all">Read Full Article</button>
+                    </article>
+
+                    <!-- Blog Card 3 -->
+                    <article class="bg-brand-soft p-6 sm:p-8 rounded-3xl border border-brand-accent/20 space-y-4">
+                        <img src="https://plus.unsplash.com/premium_photo-1679522617451-30ad4b62cf84?fm=jpg&q=60&w=3000&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl" alt="Manicure & Body Polishing">
+                        <h2 class="text-2xl font-bold text-brand-dark">Improve Your Skin Texture with Quality Body Polishing Services</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">Taking care of your hands, feet, and skin is an important part of personal grooming. Regular beauty treatments can help you maintain a clean appearance and feel more comfortable in your daily routine. Choosing the right beauty service also makes a difference in the results you receive. Professional care, proper hygiene, and suitable products can help improve your overall experience....</p>
+                        <button onclick="openBlogModal('blog-3')" class="px-6 py-2.5 bg-brand-rose text-white rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-brand-dark transition-all">Read Full Article</button>
+                    </article>
+
+                    <!-- Blog Card 4 -->
+                    <article class="bg-brand-soft p-6 sm:p-8 rounded-3xl border border-brand-accent/20 space-y-4">
+                        <img src="https://plus.unsplash.com/premium_photo-1679046949051-53264cdf8426?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Hair Trimming & Eyebrow Threading">
+                        <h2 class="text-2xl font-bold text-brand-dark">Enhance Your Skin Care Routine with Professional Beauty Treatments in Faisalabad</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">Taking care of your skin is an important part of personal grooming and self-care. Daily exposure to dust, sunlight, and pollution can affect your skin's appearance and texture. A proper beauty care routine helps maintain healthy-looking skin and keeps you feeling fresh. Professional skin treatments can also address common concerns such as dryness, roughness, dullness, and clogged pores. Choosing an experienced beauty care provider makes it easier to enjoy treatments that suit your skin's needs...</p>
+                        <button onclick="openBlogModal('blog-4')" class="px-6 py-2.5 bg-brand-rose text-white rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-brand-dark transition-all">Read Full Article</button>
+                    </article>
+
+                    <!-- Blog Card 5 -->
+                    <article class="bg-brand-soft p-6 sm:p-8 rounded-3xl border border-brand-accent/20 space-y-4">
+                        <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=870&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl" alt="Hair Oiling & Nail Art">
+                        <h2 class="text-2xl font-bold text-brand-dark">Professional Beauty and Wellness Services for Relaxation and Personal Care</h2>
+                        <p class="text-xs text-gray-600 leading-relaxed">Taking care of your body is an important part of a healthy lifestyle. Regular personal care can help you feel fresh, relaxed, and more confident. A good beauty and wellness routine also gives you time to focus on your comfort and well-being. Choosing the right service provider makes the experience more enjoyable and convenient...</p>
+                        <button onclick="openBlogModal('blog-5')" class="px-6 py-2.5 bg-brand-rose text-white rounded-xl font-bold text-xs uppercase tracking-wider hover:bg-brand-dark transition-all">Read Full Article</button>
+                    </article>
+
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ================= PAGE 5: CONTACT US PAGE ================= -->
+        <div id="page-contact" class="page-content hidden">
+            <section class="py-16 bg-brand-dark text-white">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <h1 class="text-4xl font-bold">Contact Masa Health Club</h1>
+                    <p class="text-sm text-gray-300 max-w-xl mx-auto">We are ready to welcome you at Jaranwala Rd, Kohinoor City Faisalabad.</p>
+                </div>
+            </section>
+
+            <section class="py-20 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        
+                        <!-- Contact Info Card -->
+                        <div class="bg-brand-soft p-8 rounded-3xl border border-brand-accent/20 space-y-8">
+                            <div>
+                                <span class="text-brand-rose font-bold text-xs uppercase tracking-widest">Get In Touch</span>
+                                <h2 class="text-3xl font-bold text-brand-dark mt-1">Visit or Call Us</h2>
+                                <p class="text-xs text-gray-600 mt-2">Have questions about our prices or packages? Feel free to call or drop a message anytime.</p>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Phone Number</h4>
+                                        <p class="text-xs text-gray-600">03078865865</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Studio Address</h4>
+                                        <p class="text-xs text-gray-600">The Orion, 8-G, Shop No 6, Jaranwala Rd, Kohinoor City Faisalabad.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Business Email</h4>
+                                        <p class="text-xs text-gray-600">info@masahealthclub.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="p-3 bg-brand-rose text-white rounded-xl">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-sm text-brand-dark">Working Hours</h4>
+                                        <p class="text-xs text-gray-600">Mon - Sat : 11:00 AM – 9:00 PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="rounded-3xl overflow-hidden shadow-lg border border-brand-accent/20 h-[450px]">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2478.4236728552787!2d73.1161831!3d31.4124315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85a41a173e4e2db7%3A0xfa8c1d0aee6f913e!2sMasa%20Health%20Club!5e1!3m2!1sen!2s!4v1793226570250!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+
+    <!-- ================= 3RD STEP: FOOTER SECTION (3 COLUMNS 33.33% EACH) ================= -->
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t border-brand-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                
+                <!-- Column 1: 33.33% Business Logo & Description & Join Us Button -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center p-1">
+                            <svg class="w-full h-full" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="48" fill="#FDFBF7" stroke="#E07A5F" stroke-width="2"/>
+                                <text x="50%" y="48%" text-anchor="middle" dominant-baseline="middle" font-family="'Alex Brush', cursive" font-size="38" fill="#E07A5F">masa</text>
+                            </svg>
+                        </div>
+                        <span class="font-cursive text-2xl font-bold text-brand-rose">Masa Health Club</span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed font-light">
+                        Welcome to Masa Health Club, a premier health and beauty shop in Kohinoor City Faisalabad. Refresh your look with signature hair styling, organic facials, waxing, and nail care in a comfortable spa environment.
+                    </p>
+                    <div class="pt-2">
+                        <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-6 py-2.5 bg-brand-rose hover:bg-white hover:text-brand-dark text-white rounded-full font-bold text-xs uppercase tracking-wider transition-all inline-block">Join Us</a>
+                    </div>
+                </div>
+
+                <!-- Column 2: 33.33% Navigation Menu -->
+                <div class="space-y-4 md:pl-8">
+                    <h4 class="text-base font-bold text-brand-accent uppercase tracking-wider">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li><button onclick="switchTab('home')" class="hover:text-brand-rose transition-colors">Home Page</button></li>
+                        <li><button onclick="switchTab('about')" class="hover:text-brand-rose transition-colors">About Us</button></li>
+                        <li><button onclick="switchTab('services')" class="hover:text-brand-rose transition-colors">Our Services</button></li>
+                        <li><button onclick="switchTab('blogs')" class="hover:text-brand-rose transition-colors">Blogs & Insights</button></li>
+                        <li><button onclick="switchTab('contact')" class="hover:text-brand-rose transition-colors">Contact Us</button></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: 33.33% Flat Icons Contact Details -->
+                <div class="space-y-4">
+                    <h4 class="text-base font-bold text-brand-accent uppercase tracking-wider">Contact Information</h4>
+                    <ul class="space-y-3 text-xs text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-brand-rose text-sm"></i>
+                            <span>info@masahealthclub.com</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-rose text-sm"></i>
+                            <span>03078865865</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot text-brand-rose text-sm mt-0.5"></i>
+                            <span>The Orion, 8-G, Shop No 6, Jaranwala Rd, Kohinoor City Faisalabad.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-clock text-brand-rose text-sm"></i>
+                            <span>Mon - Sat : 11:00 AM – 9:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Line -->
+            <div class="border-t border-gray-800 pt-6 text-center text-xs text-gray-400">
+                <p>&copy; 2026 All Rights Reserved By The Ranking Geeks</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+    <a href="https://wa.me/923078865865" target="_blank" class="whatsapp-float fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+
+    <!-- ================= READ MORE BLOG MODAL ================= -->
+    <div id="blog-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 relative space-y-6 text-brand-dark">
+            <button onclick="closeBlogModal()" class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-brand-rose hover:text-white rounded-full flex items-center justify-center font-bold text-lg transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // SPA Page Tab Switching
+        function switchTab(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Update Nav Active States
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.classList.remove('text-brand-rose', 'bg-brand-card/50');
+            });
+            const activeBtn = document.getElementById('nav-' + pageId);
+            if (activeBtn) {
+                activeBtn.classList.add('text-brand-rose', 'bg-brand-card/50');
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Hero Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#hero-slider .slide');
+        const dots = document.querySelectorAll('#hero-slider .dot');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0');
+                    slide.classList.add('opacity-100');
+                } else {
+                    slide.classList.remove('opacity-100');
+                    slide.classList.add('opacity-0');
+                }
+            });
+
+            dots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-brand-rose', 'w-8');
+                } else {
+                    dot.classList.remove('bg-brand-rose', 'w-8');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        function prevSlide() {
+            let prev = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prev);
+        }
+
+        function setSlide(index) {
+            showSlide(index);
+        }
+
+        // Auto slide hero
+        setInterval(() => {
+            if (!document.hidden) nextSlide();
+        }, 5000);
+
+
+        // Customer Reviews Carousel
+        let currentReview = 0;
+        const totalReviews = 3;
+
+        function showReview(index) {
+            for (let i = 0; i < totalReviews; i++) {
+                const el = document.getElementById('review-slide-' + i);
+                if (el) {
+                    if (i === index) el.classList.remove('hidden');
+                    else el.classList.add('hidden');
+                }
+            }
+
+            const revDots = document.querySelectorAll('.rev-dot');
+            revDots.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-brand-rose');
+                } else {
+                    dot.classList.remove('bg-brand-rose');
+                    dot.classList.add('bg-gray-300');
+                }
+            });
+            currentReview = index;
+        }
+
+        function nextReview() {
+            showReview((currentReview + 1) % totalReviews);
+        }
+
+        function prevReview() {
+            showReview((currentReview - 1 + totalReviews) % totalReviews);
+        }
+
+        function setReviewSlide(i) {
+            showReview(i);
+        }
+
+
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal-section');
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+
+
+        // Stat Counter Animation
+        let counted = false;
+        function runCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const speed = 200;
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            const counterSection = document.querySelector('.counter');
+            if (counterSection && !counted) {
+                const pos = counterSection.getBoundingClientRect().top;
+                if (pos < window.innerHeight) {
+                    runCounters();
+                    counted = true;
+                }
+            }
+        });
+
+
+        // Full SEO Blog Articles Content Store
+        const blogsData = {
+            'blog-1': `
+                <img src="https://images.unsplash.com/photo-1675034743339-0b0747047727?q=80&w=870&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Beauty Salon Services">
+                <h2 class="text-2xl font-bold text-brand-dark mb-2"> 
+Beauty Salon Services for a Fresh and Confident Look </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Taking care of your skin, hair, and overall appearance is an important part of personal grooming. A professional salon offers a range of treatments to help people look fresh and feel confident. Choosing the right salon also makes a difference, as trained staff can understand individual needs and recommend suitable services. Whether you want regular grooming or a relaxing beauty session, professional care can make your experience more comfortable. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Why Does Professional Beauty Care Matter? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Personal grooming is not only about appearance. It is also about maintaining healthy skin, neat hair, and a well-groomed look. Professional salon treatments are designed to meet different beauty and personal care needs. They can also save time by providing several services in one convenient location.
+A good salon focuses on customer comfort and service quality. The staff should understand different skin types, hair conditions, and personal preferences. Clean equipment and proper hygiene practices are also important. These factors help customers enjoy their salon visits with greater confidence. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Explore Professional Beauty Salon Services </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Choosing professional <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Beauty Salon Services</a>  can help you maintain your appearance and personal grooming routine. These services may include hair care, styling, skin treatments, and other beauty solutions. Each treatment serves a different purpose and can be selected according to your needs.
+Hair care is one of the most popular salon services. A professional haircut can give your hair a neat and fresh appearance. Hair styling is also useful for weddings, parties, family gatherings, and other special occasions. You can discuss your preferred style with the salon staff before starting the service.
+Regular grooming can also help you maintain a polished appearance. Professional staff can guide you about suitable treatments based on your preferences. It is always better to choose services that match your needs instead of following every beauty trend. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Benefits of Facial Treatment Services <h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Healthy-looking skin requires regular care and attention. Dust, pollution, sunlight, and daily stress can affect the appearance of your skin. Professional <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Facial Treatment Services</a> can help cleanse the skin and improve its overall appearance.
+Facials generally involve cleansing, exfoliation, and moisturizing. Some treatments also include masks and gentle massage techniques. The right facial depends on your skin type and personal concerns. People with sensitive or acne-prone skin should discuss their skin condition with a trained professional before choosing a treatment.
+Regular facial care can help remove surface impurities and leave the skin feeling refreshed. It can also provide a relaxing break from a busy routine. However, results can vary depending on skin type and the treatment selected. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Hair Care and Styling for Different Occasions </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Hair plays an important role in personal appearance. A suitable haircut and hairstyle can complement your face shape and personal style. Professional hair care services can help you maintain a neat and attractive look.
+Many people visit salons for haircuts, blow-drying, styling, and hair treatments. These services are useful for everyday grooming as well as special events. Before choosing a hair treatment, discuss your hair condition and expected results with the stylist.
+Proper aftercare is also important. Use suitable hair products and avoid excessive heat styling when possible. Following professional advice can help you maintain your hairstyle for longer. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> The Importance of Hygiene and Customer Comfort </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Cleanliness should always be a priority when choosing a salon. Customers should feel comfortable throughout their appointments. Clean towels, sanitized tools, and properly maintained equipment are important parts of professional salon care.
+A well-managed salon also values communication. Staff should explain the treatment process and answer customer questions. They should also consider allergies, sensitivities, and individual preferences before starting a service.
+Customer comfort is equally important. A welcoming environment can make salon visits more enjoyable. Good service means listening to customers and providing treatments according to their requirements. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Choosing the Right Salon for Your Needs </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">Finding the right salon requires attention to a few important details. First, consider the range of services available. A salon offering different grooming and skincare options can make regular personal care more convenient.
+Next, consider staff experience and hygiene standards. Professional knowledge helps salon staff understand different customer requirements. You should also ask about treatment procedures and products before booking an appointment.
+Customer reviews can provide additional information about service quality. Location is another important factor, especially if you plan to visit regularly. Choosing a salon in an accessible area can make your beauty routine easier to manage. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Why Are Regular Salon Visits Worth Considering? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Regular grooming can help you maintain a neat appearance throughout the year. It also allows you to focus on personal care. You do not need to wait for a wedding or special occasion to visit a salon.
+A consistent skincare routine can support your skin's appearance. Haircuts and styling can help maintain healthy-looking hair. The frequency of treatments should depend on your personal needs, budget, and professional recommendations.
+It is also important to avoid unnecessary treatments. Choose services that suit your skin and hair condition. A professional consultation can help you make better decisions about your grooming routine. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Frequently Asked Questions (FAQs) </h2>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 1. What services can I get at a professional beauty salon? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A professional salon may offer haircuts, hairstyling, facials, skincare treatments, and other personal grooming services. Available options depend on the salon. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 2. How often should I get a facial? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> The ideal frequency depends on your skin type and treatment. Many people choose a facial every four to six weeks, but a skincare professional can suggest a suitable schedule. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 3. Are professional facial treatments suitable for all skin types? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Different facial treatments are available for different skin types. However, people with sensitive skin or existing skin concerns should consult a trained professional before treatment. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 4. How can I choose the right salon? </h2>
+Check the salon's service options, cleanliness, staff experience, customer feedback, and location. You can also contact the salon to ask about treatments and appointment availability.
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  5. Why should I choose a professional salon for personal grooming? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Professional salons provide access to trained staff, suitable products, and dedicated grooming facilities. They can also help you select treatments according to your personal preferences. </p>
+ <h3 class="text-lg font-bold text-brand-dark mt-4 mb-2">Conclusion</h3>
+ <p class="text-xs text-gray-700 leading-relaxed"> Taking care of your skin, hair, and personal appearance can improve your confidence and support a healthy grooming routine. Choosing professional treatments and maintaining regular personal care can help you look neat and feel refreshed. For customers looking for professional grooming and skincare options, Masa Health Club is a great choice in Jaranwala Rd, Kohinoor City Faisalabad, and the surrounding areas. Visit the location to explore available services and discuss your personal beauty care needs. </p>
+
+            `,
+            'blog-2': `
+                <img src="https://images.unsplash.com/photo-1700760934268-8aa0ef52ce0a?q=80&w=464&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Hair Styling Services">
+                <h2 class="text-2xl font-bold text-brand-dark mb-2">  Enhance Your Beauty and Confidence with Expert Salon Services </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Looking after your appearance is an important part of personal care. Well-maintained hair and smooth skin can help you feel comfortable and confident in your daily life. Choosing a professional beauty salon makes it easier to maintain your personal grooming routine. From fresh hairstyles to effective beauty treatments, the right salon can provide services that suit your needs, preferences, and lifestyle. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Discover the Benefits of Professional Hair Care </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Healthy and well-styled hair can make a positive difference in your overall appearance. Regular hair care helps maintain hair texture, manageability, and shine. Professional stylists understand that every person has a different hair type and styling preference. They can suggest suitable treatments and styles based on your face shape, hair condition, and personal choices.
+A professional salon also provides an opportunity to try new looks without compromising your hair care routine. Whether you prefer a simple everyday style or something suitable for a special event, an experienced stylist can help you achieve your desired appearance. Regular trimming and proper hair maintenance can also help reduce split ends and improve the overall look of your hair. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Why Does Professional Hair Styling Matter? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Choosing professional <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block"> Hair Styling Services </a> is a great way to maintain an attractive and well-groomed appearance. Professional styling involves more than simply cutting or arranging hair. It includes understanding hair texture, selecting suitable products, and using appropriate styling techniques. These details can make a noticeable difference in the final result.
+Different occasions may require different hairstyles. Some people prefer simple and manageable styles for everyday activities, while others want elegant looks for weddings, parties, and family gatherings. A trained stylist can help select a hairstyle that matches the occasion. Professional guidance also makes it easier to maintain your chosen look at home. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> The Importance of Regular Hair Maintenance </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Hair maintenance should be a regular part of personal grooming. Dust, pollution, heat styling, and unsuitable hair products can affect the condition of your hair. Following a suitable hair care routine helps keep your hair looking fresh and manageable. Professional advice can also help you understand which products and treatments are appropriate for your hair type.
+Regular salon visits provide an opportunity to address common hair concerns. These may include dryness, frizz, split ends, and difficulty managing hair. A stylist can recommend suitable treatments and explain how to care for your hair between appointments. Consistent maintenance can help you achieve better results over time. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Benefits of Professional Waxing for Smooth Skin </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Personal grooming is not limited to hair care. Skin maintenance is another important part of looking and feeling your best. Many people prefer waxing because it removes unwanted hair from the root and leaves the skin feeling smoother. It can also reduce the need for frequent shaving.
+Professional waxing requires proper preparation, suitable products, and careful application. Different areas of the body may require different waxing techniques. A trained beauty professional can select an appropriate method according to the treatment area and individual skin needs. Proper aftercare is also important for reducing irritation and keeping the skin comfortable. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> What Makes Professional Waxing a Popular Choice? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Many people choose <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Professional Waxing Services </a> because they want a convenient and effective grooming experience. Waxing can help remove unwanted hair from different areas, including the arms, legs, and underarms. Depending on personal preferences and available treatments, other areas may also be included. Professional application helps ensure that the process is performed with care.
+One major advantage of salon waxing is the attention given to hygiene and skin comfort. Clean equipment, fresh materials, and appropriate techniques are important for a positive experience. Beauty professionals should also consider skin sensitivity before starting a treatment. If you have irritated skin, cuts, or a skin condition, it is best to discuss these concerns before booking. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> How to Prepare for a Waxing Appointment? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Preparing your skin before a waxing appointment can help improve your experience. Make sure the treatment area is clean and free from heavy creams or oils. Hair should generally have enough length for the wax to grip properly. If you are unsure about the required length, ask the salon professional before your visit.
+It is also important to share any skin sensitivities or previous reactions to waxing. Avoid waxing areas that are sunburned, damaged, or irritated. A professional consultation can help determine whether the treatment is suitable for your skin. Following these basic steps can make the appointment more comfortable. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Choosing the Right Beauty Salon in Faisalabad </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Finding a suitable beauty salon involves more than looking at its location. You should consider the range of available treatments, staff experience, customer service, and hygiene standards. A good salon listens to your preferences and explains the available options before starting a treatment. Clear communication helps ensure that the final result matches your expectations.
+Convenient access is another important factor when selecting a salon. People living or working near Kohinoor City often prefer beauty services that are easy to reach. A nearby salon can make regular grooming appointments easier to manage. It also saves time when you need professional care before an event or special occasion. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Why Choose Masa Health Club? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Masa Health Club is a leading choice for people looking for professional beauty and personal grooming services in Faisalabad. The company focuses on providing services that support individual grooming preferences and beauty needs. Customers can explore suitable options for maintaining their appearance and preparing for different occasions. Its location also makes it a convenient option for people in nearby areas.
+Choosing the right salon means finding a place where your needs are understood. From discussing your preferred hairstyle to selecting an appropriate waxing treatment, professional attention can improve your overall experience. Customers should always communicate their expectations and mention any specific concerns before starting a service. This helps the beauty professional recommend suitable options. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Tips for Maintaining Your Appearance Between Salon Visits </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Maintaining your appearance does not end when you leave the salon. A consistent home care routine helps preserve the results of professional treatments. For hair, use products that match your hair type and avoid unnecessary heat styling. Regular conditioning and gentle handling can also help maintain healthy-looking hair.
+After waxing, follow the aftercare instructions provided by your beauty professional. Avoid excessive heat, strong exfoliation, and unnecessary friction immediately after treatment. Keep the treated area clean and use suitable skincare products to support comfort. If you experience unusual irritation, seek appropriate professional advice.
+Planning your appointments in advance can also make personal grooming easier. Regular hair maintenance and waxing appointments can be scheduled according to your individual needs. Avoid following a fixed schedule if your hair or skin requires a different approach. Personal comfort and proper care should always come first. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Frequently Asked Questions (FAQs) </h2>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  1. How often should I visit a salon for hair styling? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  The frequency depends on your hairstyle, hair growth, and personal preferences. Some people prefer regular trimming, while others book appointments mainly for special occasions. A professional stylist can recommend a suitable maintenance schedule based on your hair condition. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  2. Is professional waxing suitable for everyone? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Waxing is suitable for many people, but it may not be appropriate for every skin type or condition. People with irritated, damaged, or sunburned skin should avoid treatment until the area has recovered. Discuss your skin concerns with a professional before booking an appointment. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  3. How long do waxing results usually last? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Waxing results vary depending on individual hair growth and the treatment area. Many people enjoy smooth skin for several weeks before regrowth becomes noticeable. Following proper aftercare can help maintain skin comfort after the treatment. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  4. What should I do before visiting a beauty salon? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Before your appointment, consider the treatment you want and any particular results you expect. Keep your hair or skin clean according to the salon's preparation instructions. It is also helpful to discuss allergies, sensitivities, and previous treatment experiences with the professional. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  5. Where can I find professional beauty services in Faisalabad? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Masa Health Club offers beauty and personal grooming services at Jaranwala Road, Kohinoor City, Faisalabad. People living in surrounding areas can explore its services and contact the company for appointment details. You can also use its Google Maps listing to find the location and plan your visit. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Conclusion </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">  Personal grooming is an important part of maintaining confidence and looking presentable. Professional salon treatments can help you care for your hair and skin while saving time and effort. Choosing an experienced beauty service provider, following proper aftercare, and maintaining a regular routine can improve your overall grooming experience.
+For people searching for quality beauty and personal grooming options, Masa Health Club is a leading choice in Jaranwala Rd, Kohinoor City Faisalabad, and the surrounding areas. Visit the salon to explore available treatments and discuss your personal beauty requirements. Make professional grooming a regular part of your self-care routine and enjoy a fresh, well-maintained appearance. </p>
+
+            `,
+            'blog-3': `
+                <img src="https://plus.unsplash.com/premium_photo-1679522617451-30ad4b62cf84?fm=jpg&q=60&w=3000&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Manicure & Body Polishing">
+                <h2 class="text-2xl font-bold text-brand-dark mb-2"> Improve Your Skin Texture with Quality Body Polishing Services </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Taking care of your hands, feet, and skin is an important part of personal grooming. Regular beauty treatments can help you maintain a clean appearance and feel more comfortable in your daily routine. Choosing the right beauty service also makes a difference in the results you receive. Professional care, proper hygiene, and suitable products can help improve your overall experience. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Enhance Your Appearance with Professional Manicure Treatments </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Well-groomed hands can make a positive impression in both personal and professional settings. <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Manicure Services</a> are a great option for people who want clean nails, soft hands, and a neat appearance. These treatments focus on nail care and skin maintenance. They also provide an opportunity to relax and enjoy some personal care.
+A professional manicure usually includes nail trimming, shaping, cuticle care, and hand cleaning. Depending on your preferences, you can also choose a nail polish application. Proper nail care helps maintain the appearance of your hands. It can also make everyday grooming easier. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Enjoy Smooth Skin with Body Polishing Treatments </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Healthy-looking skin needs regular attention and suitable care. <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Body Polishing Services </a> offer a skincare treatment designed to exfoliate the outer layer of the skin. The process helps remove accumulated dead skin cells and improve skin texture. It can leave your skin feeling smoother and refreshed.
+Body polishing generally involves exfoliation followed by moisturizing. The products used may vary depending on the treatment and skin type. Professional guidance is helpful when choosing the right approach. People with sensitive skin should discuss their concerns before starting a session. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Benefits of Professional Body Polishing </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Regular exfoliation can support a cleaner and smoother skin surface. It helps remove dead skin cells that can make the skin feel rough. Moisturizing after exfoliation also helps maintain skin softness. These steps can improve the overall feel and appearance of your skin.
+Body polishing can be a useful addition to your beauty routine before special occasions. Many people choose it when preparing for weddings, parties, family gatherings, or other events. However, the treatment does not need to be limited to special occasions. It can also be part of regular personal care. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> The Importance of Choosing Professional Beauty Care </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3">The quality of a beauty treatment depends on several factors. Staff experience, product selection, hygiene practices, and attention to individual needs all matter. A professional environment helps customers feel comfortable during their sessions. It also allows treatments to be selected according to personal preferences.
+Before choosing a service, consider your skin type and grooming requirements. Inform the staff about any allergies, irritation, or sensitivity. This information can help them recommend suitable products and treatment methods. Good communication also makes the overall experience more comfortable. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Personal Grooming for Every Occasion </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Personal grooming is not only about preparing for important events. It is also about maintaining your appearance and making time for yourself. Clean nails and well-maintained skin can help you feel more confident in everyday situations. Small grooming habits can make a noticeable difference over time.
+You can plan beauty treatments according to your schedule and personal needs. Some people prefer regular appointments, while others book sessions before special occasions. The right frequency depends on your lifestyle and skin condition. Avoid excessive treatments, especially when your skin needs time to recover. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> What Makes a Good Beauty and Wellness Experience? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A good beauty experience starts with understanding the customer's needs. Everyone has different preferences, skin types, and grooming goals. Professional staff should listen carefully and explain the treatment before beginning. This creates a comfortable environment and helps customers make informed decisions.
+Clean tools and proper sanitation are also essential. Beauty equipment should be cleaned and handled carefully between appointments. Products should be suitable for the intended treatment. These basic practices support a safer and more pleasant experience.</p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Why Choose Masa Health Club for Beauty Treatments? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Finding a suitable place for personal care can make your grooming routine easier. Masa Health Club provides beauty and personal care treatments for people looking to maintain their appearance. Its services are intended to support customers who want professional attention for their hands, nails, and skin. Choosing treatments according to your individual requirements can help you get a more satisfying experience.
+Customers should feel comfortable discussing their expectations before starting any treatment. Whether you need nail grooming or a skin exfoliation session, understanding the process is important. A suitable treatment plan can make personal care more convenient. It also helps you maintain consistent grooming habits. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Frequently Asked Questions (FAQs) </h2>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 1. What is included in a professional manicure? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A professional manicure generally includes nail trimming, shaping, cuticle care, hand cleaning, and moisturizing. Nail polish may also be included depending on the selected package. The exact treatment can vary according to your requirements. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  2. How often should I get a manicure? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> The frequency depends on your nail growth, lifestyle, and personal grooming preferences. Many people schedule a manicure every two to four weeks. Your beauty professional can suggest a suitable schedule. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  3. What are the benefits of body polishing? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Body polishing helps exfoliate dead skin cells and improve the feel of your skin. It can make rough areas feel smoother and helps prepare the skin for moisturizing. Results may vary depending on your skin type and the products used. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  4. Is body polishing suitable for sensitive skin? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> People with sensitive skin should consult a professional before booking a treatment. Some exfoliating products may cause irritation. A suitable product and gentle treatment approach should be selected according to your skin condition. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  5. Where can I find professional beauty treatments in Faisalabad? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> You can visit Masa Health Club at Jaranwala Rd, Kohinoor City, Faisalabad. The location is convenient for people living in nearby areas. You can also check the business location through its Google Maps listing before planning your visit. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Conclusion </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Taking care of your nails and skin is an important part of maintaining a fresh and well-groomed appearance. Professional beauty treatments can help you manage your personal care needs while giving you time to relax. Choosing suitable treatments and maintaining good grooming habits can support your overall appearance. For professional beauty and personal care treatments, Masa Health Club is a recommended choice in Jaranwala Rd, Kohinoor City, Faisalabad, and the surrounding areas. Visit its Google Maps listing to find the location and plan your visit. </p>
+            `,
+            'blog-4': `
+                <img src="https://plus.unsplash.com/premium_photo-1679046949051-53264cdf8426?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D" alt="Hair Trimming & Eyebrow Threading">
+                <h2 class="text-2xl font-bold text-brand-dark mb-2">  Enhance Your Skin Care Routine with Professional Beauty Treatments in Faisalabad </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Taking care of your skin is an important part of personal grooming and self-care. Daily exposure to dust, sunlight, and pollution can affect your skin's appearance and texture. A proper beauty care routine helps maintain healthy-looking skin and keeps you feeling fresh. Professional skin treatments can also address common concerns such as dryness, roughness, dullness, and clogged pores. Choosing an experienced beauty care provider makes it easier to enjoy treatments that suit your skin's needs. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Experience Professional Body Care for Smooth and Healthy-Looking Skin </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Healthy skin needs regular care and attention. Professional <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block"> Body Polishing Services </a>  can help remove dead skin cells and improve the overall appearance of your skin. This treatment focuses on exfoliation and skin nourishment. It can leave your skin feeling softer, smoother, and refreshed.
+Body polishing is a useful option for people who want to improve their regular body care routine. It helps remove surface buildup and supports better skin texture. The treatment can also make rough areas feel softer. Regular care, along with proper hydration, can help maintain the results. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Why Is Body Exfoliation Important for Your Skin? </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Dead skin cells naturally collect on the skin's surface. When they build up, your skin may appear dull or feel rough. Exfoliation helps remove this buildup and gives the skin a fresher appearance. It is an important step in maintaining a healthy body care routine.
+Professional exfoliation also provides an opportunity to give extra attention to areas such as elbows, knees, arms, and legs. These areas can become dry and rough over time. A suitable treatment helps improve their texture. It is important to choose products that match your skin type to avoid irritation. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Enjoy the Benefits of Herbal Facial Treatments </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Facial care is important for maintaining fresh and healthy-looking skin. <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Herbal Facial Treatment Services </a>  are a popular choice for people who prefer skin care products made with herbal ingredients. These treatments can include cleansing, gentle exfoliation, facial massage, and moisturizing. The products used should be suitable for your individual skin type.
+Herbal facial treatments can help remove surface impurities and improve skin comfort. They also provide a relaxing experience after a busy day. Different skin types have different needs, so selecting the right facial treatment is important. A professional consultation can help determine which products and steps are appropriate for your skin. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> How Does Regular Facial Care Supports Healthy Skin? </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Your face is regularly exposed to sunlight, dust, and environmental pollutants. These factors can contribute to clogged pores and a dull appearance. Regular cleansing and moisturizing help keep your skin in better condition. Professional facial care can provide additional attention to your skin's needs.
+A good facial routine usually includes several basic steps:
+Cleansing: Helps remove dirt, oil, and everyday impurities.
+Exfoliation: Removes dead skin cells from the surface.
+Facial massage: Provides a relaxing experience.
+Mask application: Offers additional skin care based on the selected product.
+Moisturizing: Helps maintain skin hydration and softness.
+Following an appropriate routine can improve the overall appearance of your skin. However,  facial treatments should always be selected according to your skin's condition and sensitivity. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Choose Professional Beauty Care Instead of Home Treatments </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Home skin care is useful for daily maintenance. However, professional treatments offer more focused attention and a structured process. Trained beauty professionals can assess your skin concerns and suggest suitable treatment options. They can also guide you about product selection and aftercare.
+Professional care is especially helpful when you are unsure which products are suitable for your skin. Using the wrong exfoliating products or strong ingredients can sometimes cause irritation. A proper consultation helps reduce this risk. Always inform the professional about allergies, skin sensitivities, or previous reactions before starting a treatment. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Expect During a Professional Skin Care Session </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A professional skin care session generally begins with a discussion about your skin concerns. The service provider may ask about your skin type, sensitivity, and preferred results. This helps determine the most suitable treatment approach. The process should be comfortable and explained clearly before it begins.
+Depending on the selected service, the session may include cleansing, exfoliation, massage, and moisturizing. The products and techniques can vary according to the treatment. After the session, you may receive advice about keeping your skin hydrated and protected. Following these instructions can help you maintain your skin care results. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Tips to Maintain Your Skin After Beauty Treatments </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> After receiving a professional skin treatment, proper aftercare is important. Your skin may need extra attention, especially after exfoliation. Avoid using harsh products immediately after treatment unless advised by your skin care professional. Gentle products are generally a better choice.
+Here are some useful skin care tips:
+Drink enough water throughout the day.
+Apply a suitable moisturizer regularly.
+Use sunscreen when going outdoors.
+Avoid excessive scrubbing.
+Choose products that match your skin type.
+Follow the aftercare instructions provided by your service provider.
+Avoid treatments that cause discomfort or irritation.
+These simple habits can support your regular skin care routine. Consistency is more important than using too many products at once.</p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Visit Masa Health Club for Beauty Care in Faisalabad </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Finding a suitable beauty care provider can make your skin care experience more comfortable. Masa Health Club is a well-known choice for people looking for professional beauty and personal care treatments. The company offers beauty care options for individuals who want to give proper attention to their skin. Its location makes it convenient for residents of Faisalabad and nearby areas.
+Whether you are interested in body care or facial treatments, choosing services according to your skin type is essential. Discuss your expectations before starting any treatment. You can also ask about the products, treatment steps, hygiene practices, and aftercare recommendations. This helps you make an informed decision about your skin care.</p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Frequently Asked Questions (FAQs) </h2> 
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 1. What are the benefits of professional body polishing? </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Professional body polishing helps remove dead skin cells and surface buildup. It can improve skin texture and leave your body feeling softer. The treatment also supports a regular skin care routine.</p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 2. How often should I get a body polishing treatment? </h2> 
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> The ideal frequency depends on your skin type and sensitivity. Many people prefer occasional treatments rather than frequent exfoliation. Ask your beauty professional to recommend a suitable schedule. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 3. Are herbal facial treatments suitable for all skin types? </h2>
+Herbal facial treatments may suit different skin types, but not every herbal ingredient works for everyone. People with sensitive skin or allergies should discuss their concerns before treatment. A patch test may also be recommended. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  4. How long does a professional facial treatment take? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> The duration depends on the type of facial and the steps included. A session may involve cleansing, exfoliation, massage, and moisturizing. You can confirm the expected duration with your service provider before booking. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> 5. Where can I find professional beauty care services in Faisalabad? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> You can visit Masa Health Club at Jaranwala Rd, Kohinoor City, Faisalabad. The location is convenient for people living in Kohinoor City and surrounding areas. Contact the company to learn more about available treatments and appointments. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Conclusion </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Taking care of your skin does not have to be complicated. Regular skin care, suitable products, and professional treatments can help maintain a fresh and healthy-looking appearance. Choosing the right service according to your skin type is important for comfort and better results. For professional beauty care, Masa Health Club is a great choice in Jaranwala Rd, Kohinoor City, Faisalabad, and the surrounding areas. Visit the location to explore available treatments and give your skin the attention it deserves. </p>
+
+
+
+            `,
+            'blog-5': `
+                <img src="https://images.unsplash.com/photo-1519415387722-a1c3bbef716c?q=80&w=870&auto=format&fit=crop" class="w-full h-64 object-cover rounded-2xl mb-4" alt="Hair Oiling & Nail Art">
+                <h2 class="text-2xl font-bold text-brand-dark mb-2">  Professional Beauty and Wellness Services for Relaxation and Personal Care  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Taking care of your body is an important part of a healthy lifestyle. Regular personal care can help you feel fresh, relaxed, and more confident. A good beauty and wellness routine also gives you time to focus on your comfort and well-being. Choosing the right service provider makes the experience more enjoyable and convenient. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Enhance Your Foot Care with Professional Pedicure Services  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Foot care is often overlooked in daily personal care routines. However, your feet need regular attention to stay clean, fresh, and comfortable. <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Professional Pedicure Services </a> offer a convenient way to maintain healthy-looking feet and well-groomed toenails. These treatments are suitable for people who want to improve their foot care routine.
+A pedicure usually includes cleaning, nail trimming, shaping, and cuticle care. It may also include soaking, exfoliation, and moisturizing. These steps help remove surface dirt and dry skin while improving the appearance of your feet. Regular treatments can also make your feet feel softer and more comfortable. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Enjoy Relaxation with Head Massage Services  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A relaxing head massage can be a great addition to your personal wellness routine. Daily responsibilities, long working hours, and screen time can make you feel mentally tired. <a href="https://maps.app.goo.gl/VaghJsVdBmUwW4BC9" target="_blank" class="px-8 py-4 bg-brand-rose text-white rounded-full font-bold text-xs uppercase tracking-wider shadow-md hover:bg-brand-dark transition-all inline-block">  Head Massage Services </a> provide an opportunity to relax and enjoy some quiet time. Gentle massage techniques can help ease everyday tension and support a relaxing experience.
+A head massage generally involves gentle pressure and movements across the scalp. Depending on the treatment, the massage may also include the forehead, temples, neck, and shoulders. These areas can hold tension after a busy day. A comfortable massage session gives you time to slow down and unwind. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Benefits of Getting a Professional Head Massage  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A head massage is not only about relaxation. It can also be a pleasant way to take a break from your daily routine. Many people enjoy the calming feeling of gentle scalp movements. The experience can help them feel more comfortable after a long day.
+Some common reasons people choose head massage treatments include:
+Relaxation: Gentle massage movements create a calming experience.
+Stress relief: Taking time for yourself can help reduce feelings of everyday stress.
+Scalp care: Massage can support a regular scalp care routine.
+Personal comfort: Gentle techniques can help ease tension around the head and neck.
+Me-time: A massage session provides an opportunity to step away from daily responsibilities.
+The pressure and massage technique should always match your comfort level. You can communicate your preferences to the therapist before the session begins. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Why Choose Professional Beauty and Wellness Treatments?  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Professional beauty and wellness treatments offer more than basic personal care. They provide a comfortable environment where you can focus on your needs. Experienced staff can guide you through the available services and explain the treatment process. This makes it easier to choose an option that suits your preferences.
+Cleanliness should always be a priority when selecting a salon or wellness center. Foot care tools should be properly cleaned and disinfected between clients. Fresh towels and clean treatment areas also help create a pleasant experience. These details are important for maintaining personal hygiene.
+Another benefit is the opportunity to enjoy different treatments in one location. Instead of visiting multiple places, you can explore services that support your personal care routine. This can save time and make regular self-care easier to manage. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Make Personal Care Part of Your Weekly Routine  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Looking after yourself does not have to be difficult. Small steps can make a difference in how you feel throughout the week. Keeping your feet clean, moisturizing your skin, and maintaining scalp hygiene are useful habits. You can also schedule occasional professional treatments when you need extra care.
+It is important to choose treatments based on your personal needs. Some people prefer regular foot care, while others enjoy relaxing massage sessions. You do not need to follow the same schedule as everyone else. A routine that fits your lifestyle is often the easiest to maintain. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  What Makes Masa Health Club a Good Choice?  </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Finding a suitable wellness center is an important part of enjoying personal care treatments. You want a place where you feel comfortable and can discuss your preferences. A welcoming environment and attention to hygiene can improve the overall experience. Professional service also helps you feel more confident about your chosen treatment.
+Masa Health Club is a great option for people looking for personal care and relaxation services in Faisalabad. Its location makes it convenient for residents and visitors in nearby areas. Whether you want to refresh your foot care routine or enjoy a relaxing head massage, choosing a suitable treatment can help you make time for yourself. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2"> Frequently Asked Questions (FAQs) </h2>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  1. How often should I get a pedicure? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> The frequency depends on your personal needs and foot care routine. Many people prefer getting a pedicure every three to four weeks. You can adjust the schedule based on your preferences and the condition of your feet. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  2. What is included in a professional pedicure? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A typical pedicure may include foot soaking, nail trimming, nail shaping, cuticle care, exfoliation, and moisturizing. The exact treatment can vary depending on the service provider and package you select. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  3. What are the benefits of a head massage? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> A head massage can provide relaxation and help ease everyday tension. It is also a pleasant way to take a break from work and daily responsibilities. The experience depends on the massage technique and your comfort level. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  4. Can I get a head massage after a busy working day? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Yes, many people prefer head massages after a long working day. Gentle massage techniques can create a relaxing experience. Let your therapist know if you have any discomfort or prefer lighter pressure. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  5. Where can I find beauty and wellness services in Faisalabad? </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> You can visit Masa Health Club at Jaranwala Rd, Kohinoor City, Faisalabad. The location is convenient for people living in the surrounding areas who are looking for personal care and relaxation services. </p>
+<h2 class="text-2xl font-bold text-brand-dark mb-2">  Conclusion </h2>
+<p class="text-xs text-gray-700 leading-relaxed mb-3"> Personal care is an important part of maintaining comfort and confidence. Regular foot care and relaxing massage sessions can help you take time for yourself and improve your overall wellness routine. Choosing a suitable service provider also makes your experience more convenient and enjoyable.
+Masa Health Club is a leading choice for these services in Jaranwala Rd, Kohinoor City, Faisalabad, and the surrounding areas. Visit the location to explore available treatments and enjoy professional personal care services in a comfortable setting. Make time for yourself and give your body the attention it deserves. </p>
+
+            `
+        };
+
+        function openBlogModal(blogKey) {
+            const modal = document.getElementById('blog-modal');
+            const content = document.getElementById('modal-content');
+            if (blogsData[blogKey]) {
+                content.innerHTML = blogsData[blogKey];
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeBlogModal() {
+            const modal = document.getElementById('blog-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Initialize default active page & slider
+        window.onload = function() {
+            switchTab('home');
+            showSlide(0);
+            showReview(0);
+            revealOnScroll();
+        };
+    </script>
+</body>
+</html>
